@@ -1,9 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
+import { Navigation, Pagination, A11y, Autoplay } from "swiper";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/autoplay";
+import useReviews from "../../../hooks/useReviews";
 
 const Reviews = () => {
+  const [reviews, setReviwes] = useReviews();
+
   return (
-    <div>
-      <h2>This is Reviews page</h2>
+    <div className="my-10">
+      <h2 className="text-center mb-5">Client FeedBacks</h2>
+
+      <Swiper
+        modules={[Navigation, Pagination, A11y, Autoplay]}
+        spaceBetween={30}
+        slidesPerView={3}
+        navigation
+        pagination={{ clickable: true }}
+        autoplay={{ autoplay: true }}
+      >
+        {reviews.map((review) => (
+          <SwiperSlide className="py-10 ">
+            <div class="card border bg-base-100 shadow-xl py-3">
+              <div class="avatar flex justify-center items-center">
+                <div class="w-1/5 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img src={review.image} alt="" />
+                </div>
+              </div>
+              <div class="card-body items-center text-center">
+                <p className="text-secondary">{review.name}</p>
+                <p className="text-gray-500">{review.text}</p>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };

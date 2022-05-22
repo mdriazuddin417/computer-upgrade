@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Navbar = ({ children }) => {
-  let user = true;
+  let user = false;
   let admin = false;
   return (
     <div class="drawer">
@@ -36,35 +36,12 @@ const Navbar = ({ children }) => {
                   Home
                 </NavLink>
               </li>
+              <li>
+                <NavLink to={"/dashboard/myprofile"} className="rounded">
+                  Dashboard
+                </NavLink>
+              </li>
 
-              {user && (
-                <>
-                  <li>
-                    <NavLink to={"/myorder"} className="rounded">
-                      My Order
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={"/addreview"} className="rounded">
-                      Add Review
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={"/myprofile"} className="rounded">
-                      My Profile
-                    </NavLink>
-                  </li>
-                </>
-              )}
-              {admin && (
-                <>
-                  <li>
-                    <NavLink to={"/addproduct"} className="rounded">
-                      Add Product
-                    </NavLink>
-                  </li>
-                </>
-              )}
               <li>
                 <NavLink to={"/blog"} className="rounded">
                   Blog
