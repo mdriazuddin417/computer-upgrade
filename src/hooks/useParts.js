@@ -1,12 +1,11 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-
+import fetcher from "../api/fetcher";
 const useParts = () => {
   const [parts, setParts] = useState([]);
 
   useEffect(() => {
     (async () => {
-      const res = await axios.get("parts.json");
+      const res = await fetcher.get("/all-parts");
       if (res) {
         setParts(res.data);
       }

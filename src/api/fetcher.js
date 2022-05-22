@@ -1,6 +1,7 @@
 import axios from "axios";
-import React from "react";
 
 const fetcher = axios.create({
-  baseURL: "https://localhost//5000",
+  baseURL: "http://localhost:5000",
 });
+
+export default fetcher;

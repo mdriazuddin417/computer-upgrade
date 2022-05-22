@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import fetcher from "../../../api/fetcher";
 const SinglePart = ({ part }) => {
   const { _id, name, image, price, min, max, text } = part;
+
+  const handleAddPart = async () => {
+    const res = await fetcher.post("/order-parts", {
+      ...part,
+    });
+    console.log(res.data);
+  };
+
   return (
     <div class="card bg-base-100 shadow-xl border relative ">
       <figure>
@@ -27,7 +36,10 @@ const SinglePart = ({ part }) => {
       </div>
       <div class="w-full absolute bottom-0">
         <Link to={`/purchase/${_id}`}>
-          <button class="btn btn-primary w-full rounded-tr-sm rounded-tl-sm">
+          <button
+            class="btn btn-primary w-full rounded-tr-sm rounded-tl-sm"
+            onClick={handleAddPart}
+          >
             Order Now <FaShoppingCart className="ml-5 w-[30px]" />
           </button>
         </Link>

@@ -4,7 +4,7 @@ import SinglePart from "./SinglePart";
 
 const Parts = () => {
   const [parts, setparts] = useParts();
-  console.log(parts);
+
   return (
     <div className="my-10">
       <h2 className="text-center mb-5">Products</h2>
