@@ -3,17 +3,16 @@ import { useParams } from "react-router-dom";
 import fetcher from "../../api/fetcher";
 import { toast } from "react-toastify";
 import PurchaseOrder from "./PurchaseOrder";
-const Purchase = () => {
+const Purchase = ({ orderPrice, setOrderPrice }) => {
   const { id } = useParams();
   const [part, setPart] = useState({});
   const { name, price, image, text, min, quantity } = part;
   const [orderQuantity, setOrderQuantity] = useState(0);
 
-  const [orderPrice, setOrderPrice] = useState(0);
-
   useEffect(() => {
     (async () => {
       const res = await fetcher.get(`/part/${id}`);
+      console.log(res);
       if (res.data) {
         setPart(res.data);
       } else {
@@ -119,7 +118,7 @@ const Purchase = () => {
                 </p>
               </div>
             </div>
-            <PurchaseOrder />
+            <PurchaseOrder orderPrice={orderPrice} />
           </div>
         </div>
       </div>

@@ -19,7 +19,12 @@ const MyOrder = () => {
           </thead>
           <tbody>
             {orders.map((order, index) => (
-              <SingleTableRow key={order._id} order={order} index={index} />
+              <SingleTableRow
+                key={order._id}
+                order={order}
+                index={index}
+                _id={order._id}
+              />
             ))}
           </tbody>
         </table>

@@ -7,13 +7,7 @@ const SinglePart = ({ part }) => {
 
   const handleAddPart = async () => {
     const res = await fetcher.post("/order-parts", {
-      name,
-      image,
-      price,
-      min,
-
-      text,
-      quantity,
+      ...part,
     });
     console.log(res.data);
   };

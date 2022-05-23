@@ -13,7 +13,13 @@ import MyOrder from "./pages/Dashboard/MyOrder";
 import AddReview from "./pages/Dashboard/AddReview";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { createContext, useState } from "react";
+
+export const MyContext = createContext("price");
+
 function App() {
+  const [orderPrice, setOrderPrice] = useState(0);
+  console.log(orderPrice);
   return (
     <div className="max-w-7xl mx-auto">
       <Navbar>
@@ -23,7 +29,16 @@ function App() {
           ))}
           <Route element={<PrivateRoute />}>
             {privateRoutes.map(({ path, Component }, index) => (
-              <Route key={index} path={path} element={<Component />} />
+              <Route
+                key={index}
+                path={path}
+                element={
+                  <Component
+                    orderPrice={orderPrice}
+                    setOrderPrice={setOrderPrice}
+                  />
+                }
+              />
             ))}
           </Route>
           <Route element={<AdminRoute />}>

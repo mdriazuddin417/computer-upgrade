@@ -1,9 +1,12 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import fetcher from "../../api/fetcher";
 import auth from "../../authentication/firebase.init";
 import useUser from "../../hooks/useUser";
-const PurchaseOrder = () => {
+const PurchaseOrder = ({ orderPrice }) => {
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
@@ -13,7 +16,11 @@ const PurchaseOrder = () => {
   const [user] = useAuthState(auth);
   const [users, setUsers] = useUser();
   const getUsers = users.find((getU) => getU.email === user.email);
-  const onSubmit = async (data) => {};
+
+  const onSubmit = async (data) => {
+    navigate("/payment");
+  };
+
   return (
     <div>
       <div class="card ">
@@ -71,7 +78,13 @@ const PurchaseOrder = () => {
             </div>
 
             <div class="form-control mt-6">
-              <button class="btn btn-primary">Order</button>
+              <button
+                class="btn btn-primary"
+                disabled={orderPrice ? false : true}
+                type="submit"
+              >
+                Order
+              </button>
             </div>
           </div>
         </form>
@@ -79,5 +92,4 @@ const PurchaseOrder = () => {
     </div>
   );
 };
-
 export default PurchaseOrder;
