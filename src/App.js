@@ -6,10 +6,11 @@ import PrivateRoute from "./authentication/PrivateRoute";
 import AdminRoute from "./authentication/AdminRoute";
 import privateRoutes from "./routes/privateRoutes";
 import AddProduct from "../src/pages/AdminPage/AddProduct";
-import MyProfile from "./pages/userPage/MyProfile";
-import MyOrder from "./pages/userPage/MyOrder";
-import AddReview from "./pages/userPage/AddReview";
+
 import Dashboard from "./pages/Dashboard/Dashboard";
+import MyProfile from "./pages/Dashboard/MyProfile";
+import MyOrder from "./pages/Dashboard/MyOrder";
+import AddReview from "./pages/Dashboard/AddReview";
 
 function App() {
   return (
