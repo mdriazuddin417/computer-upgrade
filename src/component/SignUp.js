@@ -7,11 +7,12 @@ import { toast } from "react-toastify";
 import auth from "../authentication/firebase.init";
 import SocialLogin from "./SocialLogin";
 import { BiShowAlt, BiHide } from "react-icons/bi";
+import fetcher from "../api/fetcher";
 const SignUp = () => {
   const [open, setOpen] = useState(false);
   const [confirmPas, setConfirmPas] = useState("");
   const navigate = useNavigate();
-
+  const status = "pending...";
   const {
     register,
     formState: { errors },
@@ -23,11 +24,11 @@ const SignUp = () => {
 
   const onSubmit = async (data) => {
     const { email, password, confirmpassword } = data;
-
     if (password !== confirmpassword) {
       setConfirmPas("Password not match !");
       return;
     }
+
     await createUserWithEmailAndPassword(email, password);
     toast.success("Sign Up Successfully !");
     reset();
@@ -197,13 +198,33 @@ const SignUp = () => {
                         {errors?.address?.message}
                       </span>
                     )}
-
-                    <label class="label">
-                      <Link to="/login" class="label-text-alt link link-hover">
-                        Already have an account?
-                      </Link>
-                    </label>
                   </div>
+                  <div class="form-control">
+                    <label class="label">
+                      <span class="label-text">Phone</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="number"
+                      class="input input-bordered"
+                      {...register("phone", {
+                        required: {
+                          value: true,
+                          message: "Number is Required",
+                        },
+                      })}
+                    />
+                    {errors.phone?.type === "required" && (
+                      <span className="text-red-500 text-sm mt-2 ml-2">
+                        {errors?.phone?.message}
+                      </span>
+                    )}
+                  </div>
+                  <label class="label">
+                    <Link to="/login" class="label-text-alt link link-hover">
+                      Already have an account?
+                    </Link>
+                  </label>
                 </div>
               </div>
               <div class="form-control mt-6 ">

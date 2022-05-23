@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import fetcher from "../../api/fetcher";
 import { toast } from "react-toastify";
+import PurchaseOrder from "./PurchaseOrder";
 const Purchase = () => {
   const { id } = useParams();
   const [part, setPart] = useState({});
   const { name, price, image, text, min, quantity } = part;
-  const [orderQuantity, setOrderQuantity] = useState(1);
+  const [orderQuantity, setOrderQuantity] = useState(0);
 
   const [orderPrice, setOrderPrice] = useState(0);
 
@@ -21,7 +22,7 @@ const Purchase = () => {
     })();
   }, [id]);
 
-  useEffect(() => {
+  const handleTotal = (event) => {
     if (orderQuantity > quantity) {
       toast.error("Your Order is Unavailable !!");
       return;
@@ -34,7 +35,7 @@ const Purchase = () => {
       const newPrice = orderQuantity * parseInt(price);
       setOrderPrice(newPrice);
     }
-  }, [price, orderQuantity, min, quantity]);
+  };
 
   return (
     <div>
@@ -54,6 +55,7 @@ const Purchase = () => {
               </figure>
               <div class="card-body ">
                 <h2 class="card-title">{name}</h2>
+                <p className="text-gray-400 text-sm">{text}</p>
                 <div className="flex items-center">
                   <h2 class="text-md text-gray-500 ">
                     Price: $
@@ -101,47 +103,23 @@ const Purchase = () => {
                     </button>
                   </label>
                 </div>
+                <div>
+                  <button
+                    className="btn btn-sm btn-primary"
+                    onClick={handleTotal}
+                  >
+                    Total
+                  </button>
+                </div>
                 <p>
-                  Total Amount: ${" "}
+                  Total Amount: $
                   <span className="text-red-800 font-bold text-xl">
                     {orderPrice}
                   </span>
                 </p>
-                <p className="text-gray-400 text-sm">{text}</p>
               </div>
             </div>
-            <div class="card ">
-              <div class="card-body">
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Email</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="email"
-                    class="input input-bordered"
-                  />
-                </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Password</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="password"
-                    class="input input-bordered"
-                  />
-                  <label class="label">
-                    <a href="#" class="label-text-alt link link-hover">
-                      Forgot password?
-                    </a>
-                  </label>
-                </div>
-                <div class="form-control mt-6">
-                  <button class="btn btn-primary">Login</button>
-                </div>
-              </div>
-            </div>
+            <PurchaseOrder />
           </div>
         </div>
       </div>
