@@ -22,13 +22,6 @@ const Purchase = () => {
   }, [id]);
 
   useEffect(() => {
-    // if (price && orderQuantity) {
-    //   const newPrice = orderQuantity * parseInt(price);
-    //   setOrderPrice(newPrice);
-    // } else {
-    //   alert("please enter a value quantity");
-    //   return;
-    // }
     if (orderQuantity > quantity) {
       toast.error("Your Order is Unavailable !!");
       return;
