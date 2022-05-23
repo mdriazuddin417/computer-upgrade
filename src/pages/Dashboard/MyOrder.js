@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useOrder from "../../hooks/useOrder";
 import SingleTableRow from "./SingleTableRow";
 
@@ -14,7 +14,7 @@ const MyOrder = () => {
               <th></th>
               <th>Name</th>
               <th>Price</th>
-              <th>Favorite Color</th>
+              <th>Payment</th>
             </tr>
           </thead>
           <tbody>

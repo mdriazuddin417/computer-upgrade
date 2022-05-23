@@ -8,7 +8,6 @@ import auth from "../authentication/firebase.init";
 import SocialLogin from "./SocialLogin";
 import { toast } from "react-toastify";
 const Login = () => {
-  const [multiError, setMultiError] = useState("");
   const [open, setOpen] = useState(false);
   const {
     register,
