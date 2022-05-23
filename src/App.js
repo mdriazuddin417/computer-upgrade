@@ -11,7 +11,8 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import MyProfile from "./pages/Dashboard/MyProfile";
 import MyOrder from "./pages/Dashboard/MyOrder";
 import AddReview from "./pages/Dashboard/AddReview";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <div className="max-w-7xl mx-auto">
@@ -35,6 +36,7 @@ function App() {
           </Route>
         </Routes>
       </Navbar>
+      <ToastContainer />
     </div>
   );
 }

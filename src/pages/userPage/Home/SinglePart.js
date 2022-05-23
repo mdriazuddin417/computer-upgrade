@@ -3,11 +3,17 @@ import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import fetcher from "../../../api/fetcher";
 const SinglePart = ({ part }) => {
-  const { _id, name, image, price, min, max, text } = part;
+  const { _id, name, image, price, min, text, quantity } = part;
 
   const handleAddPart = async () => {
     const res = await fetcher.post("/order-parts", {
-      ...part,
+      name,
+      image,
+      price,
+      min,
+
+      text,
+      quantity,
     });
     console.log(res.data);
   };
@@ -29,8 +35,8 @@ const SinglePart = ({ part }) => {
             In Stock
           </p>
         </div>
+        <h2 class="text-sm text-gray-600">Available : {quantity}Pieces</h2>
         <h2 class="text-sm text-gray-600">Min. Order: {min}Pieces</h2>
-        <h2 class="text-sm text-gray-600 ">Max. Order: {max}Pieces</h2>
 
         <p className="text-md text-gray-500 mb-10">{text}</p>
       </div>
