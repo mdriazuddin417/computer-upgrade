@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BiShowAlt, BiHide } from "react-icons/bi";
@@ -27,12 +27,34 @@ const Login = () => {
     const email = data.email;
     const password = data.password;
     await signInWithEmailAndPassword(email, password);
-    toast.success("Login Successfully !!");
+
     reset();
   };
+
   if (user) {
+    toast.success("Login Successfully !!");
     navigate(from, { replace: true });
   }
+
+  useEffect(() => {
+    if (error) {
+      console.log(error.message);
+      switch (error.message) {
+        case "Firebase: Error (auth/email-already-exists).":
+          toast.error("Email is Already using.");
+          break;
+        case "Firebase: Error (auth/user-not-found).":
+          toast.error("Please enter a valid email ?");
+          break;
+        case "Firebase: Error (auth/wrong-password).":
+          toast.error("Wrong Password !!");
+          break;
+        default:
+          toast.error("Something Problem !!");
+          break;
+      }
+    }
+  }, [error]);
   return (
     <div
       className=" "
@@ -67,17 +89,17 @@ const Login = () => {
                     },
                   })}
                 />
-                {errors.email?.type === "required" && (
-                  <span className="text-red-500 text-sm mt-2 ml-2">
-                    {errors?.email?.message}
-                  </span>
-                )}
-                {errors.email?.type === "pattern" && (
-                  <span className="text-red-500 text-sm mt-2 ml-2">
-                    {errors?.email?.message}
-                  </span>
-                )}
               </div>
+              {errors.email?.type === "required" && (
+                <span className="text-red-500 text-sm mt-2 ml-2">
+                  {errors?.email?.message}
+                </span>
+              )}
+              {errors.email?.type === "pattern" && (
+                <span className="text-red-500 text-sm mt-2 ml-2">
+                  {errors?.email?.message}
+                </span>
+              )}
               <div class="form-control relative ">
                 <label class="label ">
                   <span class="label-text">Password</span>
@@ -108,16 +130,6 @@ const Login = () => {
                   />
                 )}
 
-                {errors.password?.type === "required" && (
-                  <span className="text-red-500 text-sm mt-2 ml-2">
-                    {errors?.password?.message}
-                  </span>
-                )}
-                {errors.password?.type === "pattern" && (
-                  <span className="text-red-500 text-sm mt-2 ml-2">
-                    {errors?.password?.message}
-                  </span>
-                )}
                 <label class="label flex justify-between items-center label-text-alt link link-hover">
                   <label for="my-modal-3">Forget Password ?</label>
                   <Link to={"/signup"}>
@@ -126,6 +138,16 @@ const Login = () => {
                   </Link>
                 </label>
               </div>
+              {errors.password?.type === "required" && (
+                <span className="text-red-500 text-sm mt-2 ml-2">
+                  {errors?.password?.message}
+                </span>
+              )}
+              {errors.password?.type === "pattern" && (
+                <span className="text-red-500 text-sm mt-2 ml-2">
+                  {errors?.password?.message}
+                </span>
+              )}
               <div class="form-control mt-6">
                 <button
                   class={

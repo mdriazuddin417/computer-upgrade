@@ -6,6 +6,7 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../authentication/firebase.init";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const SocialLogin = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -17,6 +18,10 @@ const SocialLogin = () => {
   const from = location.state?.from?.pathname || "/";
   if (gUser || ghUser) {
     navigate(from, { replace: true });
+  }
+  if (gError || ghError) {
+    toast.error("Internal Something Error ");
+    return;
   }
   return (
     <>

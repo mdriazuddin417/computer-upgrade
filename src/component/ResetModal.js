@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../authentication/firebase.init";
 const ResetModal = () => {
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
@@ -18,6 +20,7 @@ const ResetModal = () => {
     toast.success("Sent email");
 
     reset();
+    navigate("/");
   };
 
   return (

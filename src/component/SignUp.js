@@ -1,5 +1,5 @@
 import { async } from "@firebase/util";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -11,8 +11,7 @@ const SignUp = () => {
   const [open, setOpen] = useState(false);
   const [confirmPas, setConfirmPas] = useState("");
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+
   const {
     register,
     formState: { errors },
@@ -34,10 +33,21 @@ const SignUp = () => {
     reset();
     setConfirmPas("");
   };
-
   if (user) {
-    navigate(from, { replace: true });
+    navigate("/");
   }
+  useEffect(() => {
+    if (error) {
+      switch (error.message) {
+        case "Firebase: Error (auth/email-already-in-use).":
+          toast.error("Email is Already using.");
+          break;
+        default:
+          toast.error("Something Problem !!");
+          break;
+      }
+    }
+  }, [error]);
   return (
     <div
       className=" "
@@ -206,6 +216,7 @@ const SignUp = () => {
                   SignUP
                 </button>
               </div>
+              <SocialLogin />
             </div>
           </form>
         </div>
