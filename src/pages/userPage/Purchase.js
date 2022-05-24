@@ -12,7 +12,7 @@ const Purchase = ({ orderPrice, setOrderPrice }) => {
   useEffect(() => {
     (async () => {
       const res = await fetcher.get(`/part/${id}`);
-      console.log(res);
+
       if (res.data) {
         setPart(res.data);
       } else {
@@ -21,15 +21,13 @@ const Purchase = ({ orderPrice, setOrderPrice }) => {
     })();
   }, [id]);
 
-  const handleTotal = (event) => {
+  const handleTotal = () => {
     if (orderQuantity > quantity) {
-      toast.error("Your Order is Unavailable !!");
-      return;
+      return toast.error("Unavailable  quantity !");
     } else if (orderQuantity < 1) {
-      toast.error("Please Enter a valid quantity ??");
-      return;
+      return toast.error("Please Enter a valid quantity ??");
     } else if (min > orderQuantity) {
-      toast.error(` Please order minimum ${min} Piece`);
+      return toast.error(` Please order minimum ${min} Piece`);
     } else {
       const newPrice = orderQuantity * parseInt(price);
       setOrderPrice(newPrice);
@@ -118,7 +116,7 @@ const Purchase = ({ orderPrice, setOrderPrice }) => {
                 </p>
               </div>
             </div>
-            <PurchaseOrder orderPrice={orderPrice} />
+            <PurchaseOrder orderPrice={orderPrice} id={id} part={part} />
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Navbar from "./component/Navbar";
 
 import { publicRoutes } from "./routes/publicRoutes";
@@ -19,7 +19,7 @@ export const MyContext = createContext("price");
 
 function App() {
   const [orderPrice, setOrderPrice] = useState(0);
-  console.log(orderPrice);
+
   return (
     <div className="max-w-7xl mx-auto">
       <Navbar>

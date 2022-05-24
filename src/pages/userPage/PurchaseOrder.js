@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import fetcher from "../../api/fetcher";
 import auth from "../../authentication/firebase.init";
 import useUser from "../../hooks/useUser";
-const PurchaseOrder = ({ orderPrice }) => {
+const PurchaseOrder = ({ orderPrice, id }) => {
   const navigate = useNavigate();
   const {
     register,
@@ -78,13 +78,15 @@ const PurchaseOrder = ({ orderPrice }) => {
             </div>
 
             <div class="form-control mt-6">
-              <button
-                class="btn btn-primary"
-                disabled={orderPrice ? false : true}
-                type="submit"
-              >
-                Order
-              </button>
+              <Link to={orderPrice ? `/payment/${id}` : `/purchase/${id}`}>
+                <button
+                  disabled={orderPrice ? false : true}
+                  class="btn btn-primary"
+                  type="submit"
+                >
+                  Place Order
+                </button>
+              </Link>
             </div>
           </div>
         </form>
