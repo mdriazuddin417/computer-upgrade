@@ -4,20 +4,20 @@ import { NavLink, Outlet } from "react-router-dom";
 const Dashboard = () => {
   return (
     <div>
-      <div class="drawer drawer-mobile">
-        <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-content  bg-green-300">
+      <div className="drawer drawer-mobile">
+        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+        <div className="drawer-content  bg-green-300">
           <Outlet />
           <label
-            for="my-drawer-2"
-            class="btn btn-primary drawer-button lg:hidden"
+            htmlFor="my-drawer-2"
+            className="btn btn-primary drawer-button lg:hidden"
           >
             Open drawer
           </label>
         </div>
-        <div class="drawer-side">
-          <label for="my-drawer-2" class="drawer-overlay"></label>
-          <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+        <div className="drawer-side">
+          <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+          <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
             {/* <!-- Sidebar content here --> */}
             <li>
               <NavLink to={"myprofile"}>MY Profile</NavLink>

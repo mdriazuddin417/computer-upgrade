@@ -37,24 +37,24 @@ const Purchase = ({ orderPrice, setOrderPrice }) => {
   return (
     <div>
       <div
-        class="hero min-h-screen"
+        className="hero min-h-screen"
         style={{
           backgroundImage:
             "url(https://api.lorem.space/image/fashion?w=1000&h=800)",
         }}
       >
-        <div class="hero-overlay bg-opacity-60"></div>
-        <div class="hero-content  ">
-          <div class="max-w-5xl grid lg:grid-cols-2 gap-5 bg-base-100 shadow-xl card">
-            <div class="card ">
+        <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero-content  ">
+          <div className="max-w-5xl grid lg:grid-cols-2 gap-5 bg-base-100 shadow-xl card">
+            <div className="card ">
               <figure>
                 <img src={image} alt={name} className="w-[250] h-[250px]" />
               </figure>
-              <div class="card-body ">
-                <h2 class="card-title">{name}</h2>
+              <div className="card-body ">
+                <h2 className="card-title">{name}</h2>
                 <p className="text-gray-400 text-sm">{text}</p>
                 <div className="flex items-center">
-                  <h2 class="text-md text-gray-500 ">
+                  <h2 className="text-md text-gray-500 ">
                     Price: $
                     <span className="text-red-700 font-bold text-xl">
                       {price}
@@ -65,16 +65,18 @@ const Purchase = ({ orderPrice, setOrderPrice }) => {
                     In Stock
                   </p>
                 </div>
-                <h2 class="text-md text-gray-600">
+                <h2 className="text-md text-gray-600">
                   Available : {quantity}Pieces
                 </h2>
-                <h2 class="text-xs text-gray-600">Min. Order: {min}Pieces</h2>
+                <h2 className="text-xs text-gray-600">
+                  Min. Order: {min}Pieces
+                </h2>
 
-                <div class="form-control ">
-                  <label class="label">
-                    <span class="label-text">Enter Quantity</span>
+                <div className="form-control ">
+                  <label className="label">
+                    <span className="label-text">Enter Quantity</span>
                   </label>
-                  <label class="input-group input-group-sm">
+                  <label className="input-group input-group-sm">
                     <button
                       className="btn btn-primary btn-sm"
                       onClick={() =>
@@ -87,7 +89,7 @@ const Purchase = ({ orderPrice, setOrderPrice }) => {
                       type="number"
                       value={orderQuantity}
                       onChange={(e) => setOrderQuantity(e.target.value)}
-                      class="input input-bordered input-sm "
+                      className="input input-bordered input-sm "
                     />
                     <button
                       className="btn btn-primary btn-sm"

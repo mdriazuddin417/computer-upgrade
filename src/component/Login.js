@@ -68,18 +68,18 @@ const Login = () => {
       <div className="flex justify-center items-center h-screen">
         <div className="lg:max-w-md md:max-w-sm w-full bg-white bg-opacity-80 rounded-xl">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div class="card-body shadow-xl">
+            <div className="card-body shadow-xl">
               <h2 className="text-center my-5 lg:text-3xl text-xl font-bold text-primary uppercase">
                 Please Login
               </h2>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Email</span>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
                 </label>
                 <input
                   type="email"
                   placeholder="Your Email"
-                  class="input input-bordered"
+                  className="input input-bordered"
                   {...register("email", {
                     required: { value: true, message: "Email is Required" },
                     pattern: {
@@ -99,14 +99,14 @@ const Login = () => {
                   {errors?.email?.message}
                 </span>
               )}
-              <div class="form-control relative ">
-                <label class="label ">
-                  <span class="label-text">Password</span>
+              <div className="form-control relative ">
+                <label className="label ">
+                  <span className="label-text">Password</span>
                 </label>
                 <input
                   type={open ? "text" : "password"}
                   placeholder="Your Password"
-                  class="input input-bordered "
+                  className="input input-bordered "
                   {...register("password", {
                     required: { value: true, message: "Password is Required" },
                     pattern: {
@@ -129,8 +129,8 @@ const Login = () => {
                   />
                 )}
 
-                <label class="label flex justify-between items-center label-text-alt link link-hover">
-                  <label for="my-modal-3">Forget Password ?</label>
+                <label className="label flex justify-between items-center label-text-alt link link-hover">
+                  <label htmlFor="my-modal-3">Forget Password ?</label>
                   <Link to={"/signup"}>
                     Create an Account ?
                     <span className="text-primary">SignUp</span>{" "}
@@ -147,9 +147,9 @@ const Login = () => {
                   {errors?.password?.message}
                 </span>
               )}
-              <div class="form-control mt-6">
+              <div className="form-control mt-6">
                 <button
-                  class={
+                  className={
                     loading ? "btn btn-primary loading" : "btn-primary btn"
                   }
                   type="submit"

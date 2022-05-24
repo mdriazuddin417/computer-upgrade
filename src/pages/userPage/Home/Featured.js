@@ -20,16 +20,16 @@ const Featured = () => {
       </div>
       <div className="grid lg:grid-cols-8 md:grid-cols-4 grid-cols-2 gap-2 mt-5">
         {parts.map((part) => (
-          <div class="card  bg-white shadow-xl p-5 border">
-            <div class="flex justify-center items-center">
+          <div className="card  bg-white shadow-xl p-5 border">
+            <div className="flex justify-center items-center">
               <img
                 src={part.img}
                 alt={part.name}
-                class="rounded-xl w-[50px] "
+                className="rounded-xl w-[50px] "
               />
             </div>
-            <div class="flex justify-center items-center text-center mt-3">
-              <h2 class="card-title">{part.name}</h2>
+            <div className="flex justify-center items-center text-center mt-3">
+              <h2 className="card-title">{part.name}</h2>
             </div>
           </div>
         ))}

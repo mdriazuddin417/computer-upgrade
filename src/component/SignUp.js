@@ -63,20 +63,20 @@ const SignUp = () => {
       <div className="flex justify-center items-center h-screen">
         <div className="lg:max-w-2xl md:max-w-sm w-full bg-white bg-opacity-80 rounded-xl">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div class="card-body shadow-xl">
+            <div className="card-body shadow-xl">
               <h2 className="text-center mb-2 lg:text-3xl text-xl font-bold text-primary uppercase">
                 Please SignUp
               </h2>
               <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-5">
                 <div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Email</span>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Email</span>
                     </label>
                     <input
                       type="email"
                       placeholder="Your Email"
-                      class="input input-bordered"
+                      className="input input-bordered"
                       {...register("email", {
                         required: { value: true, message: "Email is Required" },
                         pattern: {
@@ -96,14 +96,14 @@ const SignUp = () => {
                       {errors?.email?.message}
                     </span>
                   )}
-                  <div class="form-control relative">
-                    <label class="label">
-                      <span class="label-text">Password</span>
+                  <div className="form-control relative">
+                    <label className="label">
+                      <span className="label-text">Password</span>
                     </label>
                     <input
                       type={open ? "text" : "password"}
                       placeholder="Your Password"
-                      class="input input-bordered"
+                      className="input input-bordered"
                       {...register("password", {
                         required: {
                           value: true,
@@ -134,14 +134,14 @@ const SignUp = () => {
                       {errors?.password?.message}
                     </span>
                   )}
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Confirm Password</span>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Confirm Password</span>
                     </label>
                     <input
                       type="password"
                       placeholder="Confirm Password"
-                      class="input input-bordered"
+                      className="input input-bordered"
                       {...register("confirmpassword", {
                         required: {
                           value: true,
@@ -160,14 +160,14 @@ const SignUp = () => {
                   )}
                 </div>
                 <div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Name</span>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Name</span>
                     </label>
                     <input
                       type="text"
                       placeholder="Your Name"
-                      class="input input-bordered"
+                      className="input input-bordered"
                       {...register("name", {
                         required: { value: true, message: "Name is Required" },
                       })}
@@ -178,14 +178,14 @@ const SignUp = () => {
                       </span>
                     )}
                   </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Address</span>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Address</span>
                     </label>
                     <input
                       type="text"
                       placeholder="Address"
-                      class="input input-bordered"
+                      className="input input-bordered"
                       {...register("address", {
                         required: {
                           value: true,
@@ -199,14 +199,14 @@ const SignUp = () => {
                       </span>
                     )}
                   </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Phone</span>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Phone</span>
                     </label>
                     <input
                       type="text"
                       placeholder="number"
-                      class="input input-bordered"
+                      className="input input-bordered"
                       {...register("phone", {
                         required: {
                           value: true,
@@ -220,16 +220,19 @@ const SignUp = () => {
                       </span>
                     )}
                   </div>
-                  <label class="label">
-                    <Link to="/login" class="label-text-alt link link-hover">
+                  <label className="label">
+                    <Link
+                      to="/login"
+                      className="label-text-alt link link-hover"
+                    >
                       Already have an account?
                     </Link>
                   </label>
                 </div>
               </div>
-              <div class="form-control mt-6 ">
+              <div className="form-control mt-6 ">
                 <button
-                  class={
+                  className={
                     loading ? "btn btn-primary loading" : "btn-primary btn"
                   }
                   type="submit"

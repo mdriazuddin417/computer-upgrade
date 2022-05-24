@@ -25,14 +25,14 @@ const SocialLogin = () => {
   }
   return (
     <>
-      <div class="divider">OR</div>
+      <div className="divider">OR</div>
       <button
-        class="btn btn-outline btn-secondary mb-2"
+        className="btn btn-outline btn-secondary mb-2"
         onClick={() => signInWithGoogle()}
       >
         <FaGooglePlusG className="text-2xl mr-3" /> Google
       </button>
-      <button class="btn btn-outline" onClick={() => signInWithGithub()}>
+      <button className="btn btn-outline" onClick={() => signInWithGithub()}>
         <FaGithub className="text-2xl mr-3" /> GitHub
       </button>
     </>

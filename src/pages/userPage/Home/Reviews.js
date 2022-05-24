@@ -28,13 +28,13 @@ const Reviews = () => {
       >
         {reviews.map((review) => (
           <SwiperSlide className="py-10 ">
-            <div class="card border bg-base-100 shadow-xl py-3">
-              <div class="avatar flex justify-center items-center">
-                <div class="w-1/5 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <div className="card border bg-base-100 shadow-xl py-3">
+              <div className="avatar flex justify-center items-center">
+                <div className="w-1/5 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                   <img src={review.image} alt="" />
                 </div>
               </div>
-              <div class="card-body items-center text-center">
+              <div className="card-body items-center text-center">
                 <p className="text-secondary">{review.name}</p>
                 <p className="text-gray-500">{review.text}</p>
               </div>

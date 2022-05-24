@@ -13,16 +13,16 @@ const Payment = ({ orderPrice }) => {
   const [user] = useAuthState(auth);
   return (
     <div
-      class="hero min-h-screen"
+      className="hero min-h-screen"
       style={{
         backgroundImage:
           "url(https://api.lorem.space/image/fashion?w=1000&h=800)",
       }}
     >
-      <div class="hero-overlay bg-opacity-60"></div>
-      <div class="hero-content  ">
-        <div class="max-w-5xl ">
-          <div class="card  bg-white p-10">
+      <div className="hero-overlay bg-opacity-60"></div>
+      <div className="hero-content  ">
+        <div className="max-w-5xl ">
+          <div className="card  bg-white p-10">
             <div>
               <h2 className="text-center text-xl font-bold text-accent lg:text-3xl">
                 Welcome to Payment{" "}
@@ -42,8 +42,8 @@ const Payment = ({ orderPrice }) => {
                 <span className="text-xl text-primary"> {orderPrice}</span>
               </h2>
             </div>
-            <div class="card  bg-base-100 shadow-2xl mt-10">
-              <div class="card-body">
+            <div className="card  bg-base-100 shadow-2xl mt-10">
+              <div className="card-body">
                 <Elements stripe={stripePromise}>
                   <CheckoutForm price={orderPrice} user={user} id={id} />
                 </Elements>

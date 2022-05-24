@@ -25,25 +25,25 @@ const ResetModal = () => {
 
   return (
     <div>
-      <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-      <div class="modal">
-        <div class="modal-box relative">
+      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box relative">
           <label
-            for="my-modal-3"
-            class="btn btn-sm btn-circle absolute right-2 top-2"
+            htmlFor="my-modal-3"
+            className="btn btn-sm btn-circle absolute right-2 top-2"
           >
             ✕
           </label>
-          <h3 class="text-lg font-bold">Please Enter Your Valid Email !</h3>
+          <h3 className="text-lg font-bold">Please Enter Your Valid Email !</h3>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Email</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Email</span>
               </label>
               <input
                 type="email"
                 placeholder="Your Email"
-                class="input input-bordered"
+                className="input input-bordered"
                 {...register("email", {
                   required: { value: true, message: "Email is Required" },
                   pattern: {
@@ -66,7 +66,7 @@ const ResetModal = () => {
             <div className="text-center mt-2">
               <button
                 type="submit"
-                class={
+                className={
                   sending
                     ? "btn btn-primary loading btn-sm"
                     : "btn-primary btn btn-sm"

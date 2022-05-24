@@ -41,55 +41,55 @@ const PurchaseOrder = ({ orderQuantity, orderPrice, id, part }) => {
 
   return (
     <div>
-      <div class="card ">
+      <div className="card ">
         <h3 className="text-4xl text-primary font-bold text-center mt-2">
           Order Form
         </h3>
 
         <form onSubmit={handleSubmit}>
-          <div class="card-body">
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Name</span>
+          <div className="card-body">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
               </label>
               <input
                 type="text"
                 value={user?.displayName || getUsers?.name}
                 disabled
-                class="input input-bordered"
+                className="input input-bordered"
               />
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Email</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Email</span>
               </label>
               <input
                 type="email"
                 value={user?.email || getUsers?.email}
                 disabled
-                class="input input-bordered"
+                className="input input-bordered"
               />
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Address</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Address</span>
               </label>
-              <input type="text" class="input input-bordered" />
+              <input type="text" className="input input-bordered" />
             </div>
 
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Phone</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Phone</span>
               </label>
               <input
                 type="text"
                 placeholder="Phone"
-                class="input input-bordered"
+                className="input input-bordered"
               />
             </div>
 
             <input
-              class="btn btn-primary"
+              className="btn btn-primary"
               type="submit"
               disabled={orderPrice ? false : true}
               value="Place Order"
