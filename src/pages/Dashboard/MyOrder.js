@@ -23,7 +23,7 @@ const MyOrder = () => {
                 key={order._id}
                 order={order}
                 index={index}
-                _id={order._id}
+                id={order._id}
               />
             ))}
           </tbody>

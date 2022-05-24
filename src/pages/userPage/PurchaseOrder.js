@@ -1,24 +1,42 @@
+import { async } from "@firebase/util";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
 import fetcher from "../../api/fetcher";
+
 import auth from "../../authentication/firebase.init";
 import useUser from "../../hooks/useUser";
-const PurchaseOrder = ({ orderPrice, id }) => {
+const PurchaseOrder = ({ orderQuantity, orderPrice, id, part }) => {
   const navigate = useNavigate();
-  const {
-    register,
-    formState: { errors },
-    reset,
-    handleSubmit,
-  } = useForm();
+
   const [user] = useAuthState(auth);
   const [users, setUsers] = useUser();
   const getUsers = users.find((getU) => getU.email === user.email);
 
-  const onSubmit = async (data) => {
-    navigate("/payment");
+  const order = {
+    orderId: part._id,
+    name: part.name,
+    min: part.min,
+    quantity: orderQuantity,
+    price: orderPrice,
+    payment: "pending",
+  };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log(order);
+
+    fetch("http://localhost:5000/order", {
+      method: "POST",
+      body: JSON.stringify({ ...order }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+
+    navigate(`/payment/${id}`);
   };
 
   return (
@@ -27,7 +45,8 @@ const PurchaseOrder = ({ orderPrice, id }) => {
         <h3 className="text-4xl text-primary font-bold text-center mt-2">
           Order Form
         </h3>
-        <form onSubmit={handleSubmit(onSubmit)}>
+
+        <form onSubmit={handleSubmit}>
           <div class="card-body">
             <div class="form-control">
               <label class="label">
@@ -55,13 +74,7 @@ const PurchaseOrder = ({ orderPrice, id }) => {
               <label class="label">
                 <span class="label-text">Address</span>
               </label>
-              <input
-                type="text"
-                name="address"
-                placeholder="address"
-                class="input input-bordered"
-                value={getUsers?.address || ""}
-              />
+              <input type="text" class="input input-bordered" />
             </div>
 
             <div class="form-control">
@@ -71,23 +84,16 @@ const PurchaseOrder = ({ orderPrice, id }) => {
               <input
                 type="text"
                 placeholder="Phone"
-                name="phone"
-                value={getUsers?.phone || ""}
                 class="input input-bordered"
               />
             </div>
 
-            <div class="form-control mt-6">
-              <Link to={orderPrice ? `/payment/${id}` : `/purchase/${id}`}>
-                <button
-                  disabled={orderPrice ? false : true}
-                  class="btn btn-primary"
-                  type="submit"
-                >
-                  Place Order
-                </button>
-              </Link>
-            </div>
+            <input
+              class="btn btn-primary"
+              type="submit"
+              disabled={orderPrice ? false : true}
+              value="Place Order"
+            />
           </div>
         </form>
       </div>

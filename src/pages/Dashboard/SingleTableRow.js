@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SingleTableRow = ({ order, index, _id }) => {
+const SingleTableRow = ({ order, index, id }) => {
   const { name, price, paid } = order;
   console.log(order);
 
@@ -14,7 +14,7 @@ const SingleTableRow = ({ order, index, _id }) => {
       </td>
       <td>
         {price && !paid && (
-          <Link to={`/purchase/${_id}`}>
+          <Link to={`/purchase/${id}`}>
             <button className="btn btn-success">Pay</button>{" "}
           </Link>
         )}

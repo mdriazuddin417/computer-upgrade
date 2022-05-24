@@ -5,13 +5,6 @@ import fetcher from "../../../api/fetcher";
 const SinglePart = ({ part }) => {
   const { _id, name, image, price, min, text, quantity } = part;
 
-  const handleAddPart = async () => {
-    const res = await fetcher.post("/order-parts", {
-      ...part,
-    });
-    console.log(res.data);
-  };
-
   return (
     <div class="card bg-base-100 shadow-xl border relative ">
       <figure>
@@ -36,10 +29,7 @@ const SinglePart = ({ part }) => {
       </div>
       <div class="w-full absolute bottom-0">
         <Link to={`/purchase/${_id}`}>
-          <button
-            class="btn btn-primary w-full rounded-tr-sm rounded-tl-sm"
-            onClick={handleAddPart}
-          >
+          <button class="btn btn-primary w-full rounded-tr-sm rounded-tl-sm">
             Order Now <FaShoppingCart className="ml-5 w-[30px]" />
           </button>
         </Link>
