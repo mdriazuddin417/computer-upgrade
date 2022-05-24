@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -18,30 +17,20 @@ const PurchaseOrder = ({ orderQuantity, orderPrice, id, part }) => {
     orderId: part._id,
     name: part.name,
     min: part.min,
-    quantity: orderQuantity,
+    quantity: parseInt(orderQuantity),
     price: orderPrice,
     payment: "pending",
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(order);
-
-    fetch("http://localhost:5000/order", {
-      method: "POST",
-      body: JSON.stringify({ ...order }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => console.log(json));
+    await fetcher.post("/order", { ...order });
 
     navigate(`/payment/${id}`);
   };
 
   return (
-    <div>
-      <div className="card ">
+    <div className="">
+      <div className="card mt-10">
         <h3 className="text-4xl text-primary font-bold text-center mt-2">
           Order Form
         </h3>
@@ -89,7 +78,7 @@ const PurchaseOrder = ({ orderQuantity, orderPrice, id, part }) => {
             </div>
 
             <input
-              className="btn btn-primary"
+              className="btn btn-primary mt-5"
               type="submit"
               disabled={orderPrice ? false : true}
               value="Place Order"

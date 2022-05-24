@@ -23,12 +23,15 @@ const Purchase = ({ orderPrice, setOrderPrice }) => {
 
   const handleTotal = () => {
     if (orderQuantity > quantity) {
+      setOrderPrice(0);
       return toast.error("Unavailable  quantity !");
     } else if (orderQuantity < 1) {
+      setOrderPrice(0);
       return toast.error("Please Enter a valid quantity ??");
     } else if (min > orderQuantity) {
+      setOrderPrice(0);
       return toast.error(` Please order minimum ${min} Piece`);
-    } else {
+    } else if (orderQuantity && price) {
       const newPrice = orderQuantity * parseInt(price);
       setOrderPrice(newPrice);
     }
@@ -78,6 +81,7 @@ const Purchase = ({ orderPrice, setOrderPrice }) => {
                   </label>
                   <label className="input-group input-group-sm">
                     <button
+                      disabled={orderQuantity > quantity - 1 ? true : false}
                       className="btn btn-primary btn-sm"
                       onClick={() =>
                         setOrderQuantity(parseInt(orderQuantity) + 1)
@@ -113,7 +117,7 @@ const Purchase = ({ orderPrice, setOrderPrice }) => {
                 <p>
                   Total Amount: $
                   <span className="text-red-800 font-bold text-xl">
-                    {orderPrice}
+                    {orderPrice || 0}
                   </span>
                 </p>
               </div>
