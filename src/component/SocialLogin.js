@@ -21,21 +21,20 @@ const SocialLogin = () => {
   }
   if (gError || ghError) {
     toast.error("Internal Something Error ");
-    return;
   }
   return (
-    <>
-      <div className="divider">OR</div>
+    <div className="grid grid-cols-1 gap-2 p-4">
+      <div class="divider">OR</div>
       <button
-        className="btn btn-outline btn-secondary mb-2"
+        class="btn btn-outline btn-secondary mb-2"
         onClick={() => signInWithGoogle()}
       >
         <FaGooglePlusG className="text-2xl mr-3" /> Google
       </button>
-      <button className="btn btn-outline" onClick={() => signInWithGithub()}>
+      <button class="btn btn-outline" onClick={() => signInWithGithub()}>
         <FaGithub className="text-2xl mr-3" /> GitHub
       </button>
-    </>
+    </div>
   );
 };
 

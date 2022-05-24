@@ -26,7 +26,7 @@ const Reviews = () => {
         pagination={{ clickable: true }}
         autoplay={{ autoplay: true }}
       >
-        {reviews.map((review) => (
+        {reviews.slice(reviews.length - 6, reviews.length).map((review) => (
           <SwiperSlide className="py-10 ">
             <div className="card border bg-base-100 shadow-xl py-3">
               <div className="avatar flex justify-center items-center">

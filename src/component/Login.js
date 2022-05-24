@@ -66,7 +66,7 @@ const Login = () => {
       }}
     >
       <div className="flex justify-center items-center h-screen">
-        <div className="lg:max-w-md md:max-w-sm w-full bg-white bg-opacity-80 rounded-xl">
+        <div className="lg:max-w-md md:max-w-sm w-full backdrop-blur-sm bg-white/30 rounded-xl">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="card-body shadow-xl">
               <h2 className="text-center my-5 lg:text-3xl text-xl font-bold text-primary uppercase">
@@ -157,9 +157,11 @@ const Login = () => {
                   Login
                 </button>
               </div>
-              <SocialLogin />
             </div>
           </form>
+
+          <SocialLogin />
+
           <ResetModal />
         </div>
       </div>

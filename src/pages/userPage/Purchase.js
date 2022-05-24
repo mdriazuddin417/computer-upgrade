@@ -125,7 +125,7 @@ const Purchase = ({ orderPrice, setOrderPrice }) => {
             <PurchaseOrder
               orderQuantity={orderQuantity}
               orderPrice={orderPrice}
-              // id={id}
+              id={id}
               part={part}
             />
           </div>

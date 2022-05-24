@@ -31,6 +31,9 @@ const SignUp = () => {
 
     await createUserWithEmailAndPassword(email, password);
     toast.success("Sign Up Successfully !");
+
+    const res = await fetcher.post("/add-user", { ...data });
+    console.log(res);
     reset();
     setConfirmPas("");
   };
@@ -61,7 +64,7 @@ const SignUp = () => {
       }}
     >
       <div className="flex justify-center items-center h-screen">
-        <div className="lg:max-w-2xl md:max-w-sm w-full bg-white bg-opacity-80 rounded-xl">
+        <div className="lg:max-w-2xl md:max-w-sm backdrop-blur-sm bg-white/30 w-full  bg-opacity-80 rounded-xl">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="card-body shadow-xl">
               <h2 className="text-center mb-2 lg:text-3xl text-xl font-bold text-primary uppercase">

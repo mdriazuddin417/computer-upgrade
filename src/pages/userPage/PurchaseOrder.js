@@ -19,13 +19,13 @@ const PurchaseOrder = ({ orderQuantity, orderPrice, id, part }) => {
     min: part.min,
     quantity: parseInt(orderQuantity),
     price: orderPrice,
-    payment: "pending",
+    payment: "unpaid",
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await fetcher.post("/order", { ...order });
+    await fetcher.post("/order", { ...order, email: user?.email });
 
-    navigate(`/payment/${id}`);
+    // navigate(`/payment/${id}`);
   };
 
   return (

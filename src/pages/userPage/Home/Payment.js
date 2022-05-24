@@ -2,14 +2,30 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
+import fetcher from "../../../api/fetcher";
 import auth from "../../../authentication/firebase.init";
 import CheckoutForm from "./CheckoutForm";
+import Loading from "../../../component/Loading";
 const stripePromise = loadStripe(
   "pk_test_51L1CCDGNqDr1x0jXcYpwSFklaIzKeC9Pb0pOtHrkrrz8YpJ7GBWF0HxHpkG4XTLa03KLuTSe9dyrFu2sBzc6bpzl00RrPYFQYv"
 );
-const Payment = ({ orderPrice }) => {
+const Payment = () => {
   const { id } = useParams();
+
+  const {
+    data: order,
+    isLoading,
+    error,
+  } = useQuery(["Order", id], async () => await fetcher.get(`/order/${id}`));
+  if (isLoading) {
+    <Loading />;
+  }
+  if (error) {
+    console.log(error);
+  }
+
   const [user] = useAuthState(auth);
   return (
     <div
@@ -39,13 +55,20 @@ const Payment = ({ orderPrice }) => {
               </h2>
               <h2 className="text-xl font-bold my-2">
                 Total Price : $
-                <span className="text-xl text-primary"> {orderPrice}</span>
+                <span className="text-xl text-primary">
+                  {" "}
+                  {order?.data?.price}
+                </span>
               </h2>
             </div>
             <div className="card  bg-base-100 shadow-2xl mt-10">
               <div className="card-body">
                 <Elements stripe={stripePromise}>
-                  <CheckoutForm price={orderPrice} user={user} id={id} />
+                  <CheckoutForm
+                    price={order?.data?.price}
+                    user={user}
+                    id={id}
+                  />
                 </Elements>
               </div>
             </div>
