@@ -8,6 +8,7 @@ const CheckoutForm = ({ price, user, id }) => {
   const [cardError, setCardError] = useState("");
   const [success, setSuccess] = useState("");
   const [clientSecret, setClientSecret] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetcher.post("/create-payment-intent", { price }).then((res) => {
@@ -19,6 +20,7 @@ const CheckoutForm = ({ price, user, id }) => {
   }, [price]);
 
   const handleSubmit = async (event) => {
+    setLoading(true);
     event.preventDefault();
 
     if (!stripe || !elements) {
@@ -36,6 +38,7 @@ const CheckoutForm = ({ price, user, id }) => {
     if (error) {
       setCardError(error?.message);
       toast.error(error?.message);
+      setLoading(false);
     }
 
     const { paymentIntent, error: intentError } =
@@ -52,10 +55,12 @@ const CheckoutForm = ({ price, user, id }) => {
       setCardError(intentError?.message);
       toast.error(intentError?.message);
       setSuccess("");
+      setLoading(false);
     } else {
       toast.success(`Congrats ! Your payment is completed.`);
       setCardError("");
       setSuccess(`Transaction Id: ${paymentIntent.id}`);
+      setLoading(false);
 
       //payment
       const payment = {
@@ -65,7 +70,13 @@ const CheckoutForm = ({ price, user, id }) => {
       };
 
       //Update
-      fetcher.patch(`/order/${id}`, payment).then((res) => {
+      await fetcher
+        .patch(`/order/${id}`, { payment: "pending" })
+        .then((res) => {
+          console.log(res.data);
+        });
+      //payment
+      await fetcher.patch(`/payment`, payment).then((res) => {
         console.log(res.data);
       });
     }
@@ -89,7 +100,11 @@ const CheckoutForm = ({ price, user, id }) => {
         }}
       />
       <button
-        className="btn btn-success mt-5 btn-sm"
+        className={
+          loading
+            ? "btn btn-success mt-5 btn-sm loading"
+            : "btn btn-success mt-5 btn-sm"
+        }
         type="submit"
         disabled={!stripe && !clientSecret}
       >

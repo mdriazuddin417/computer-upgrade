@@ -6,7 +6,7 @@ const Dashboard = () => {
     <div>
       <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content  bg-green-300">
+        <div className="drawer-content  bg-gray-100">
           <Outlet />
           <label
             htmlFor="my-drawer-2"

@@ -6,7 +6,13 @@ import fetcher from "../../api/fetcher";
 
 import auth from "../../authentication/firebase.init";
 import useUser from "../../hooks/useUser";
-const PurchaseOrder = ({ orderQuantity, orderPrice, id, part }) => {
+const PurchaseOrder = ({
+  orderQuantity,
+
+  orderPrice,
+  id,
+  part,
+}) => {
   const navigate = useNavigate();
 
   const [user] = useAuthState(auth);
