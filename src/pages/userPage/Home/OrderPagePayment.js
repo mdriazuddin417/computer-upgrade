@@ -1,13 +1,21 @@
+import axios from "axios";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useQuery } from "react-query";
 
 import { useParams } from "react-router-dom";
+import fetcher from "../../../api/fetcher";
 
 import auth from "../../../authentication/firebase.init";
 import CheckoutForm from "./CheckoutForm";
 
-const Payment = ({ orderPrice }) => {
+const OrderPagePayment = () => {
   const { id } = useParams();
+
+  const { data: order } = useQuery(
+    ["order", id],
+    async () => await fetcher.get(`/order/${id}`)
+  );
 
   const [user] = useAuthState(auth);
   return (
@@ -38,12 +46,17 @@ const Payment = ({ orderPrice }) => {
               </h2>
               <h2 className="text-xl font-bold my-2">
                 Total Price : $
-                <span className="text-xl text-primary"> {orderPrice}</span>
+                <span className="text-xl text-primary">
+                  {" "}
+                  {order?.data.price}
+                </span>
               </h2>
             </div>
             <div className="card  bg-base-100 shadow-2xl mt-10">
               <div className="card-body">
-                <CheckoutForm price={orderPrice} user={user} id={id} />
+                {order?.data.price && (
+                  <CheckoutForm price={order?.data.price} user={user} id={id} />
+                )}
               </div>
             </div>
           </div>
@@ -53,4 +66,4 @@ const Payment = ({ orderPrice }) => {
   );
 };
 
-export default Payment;
+export default OrderPagePayment;

@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
 import useReviews from "../../../hooks/useReviews";
-
+import ReactStars from "react-rating-stars-component";
 const Reviews = () => {
   const [reviews, setReviwes] = useReviews();
 
@@ -26,21 +26,31 @@ const Reviews = () => {
         pagination={{ clickable: true }}
         autoplay={{ autoplay: true }}
       >
-        {reviews.slice(reviews.length - 6, reviews.length).map((review) => (
-          <SwiperSlide className="py-10 ">
-            <div className="card border bg-base-100 shadow-xl py-3">
-              <div className="avatar flex justify-center items-center">
-                <div className="w-1/5 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                  <img src={review.image} alt="" />
+        {reviews
+          .slice(reviews.length - 6, reviews.length)
+          .map((review, index) => (
+            <SwiperSlide key={index} className="py-10 ">
+              <div className="card border  bg-base-100 shadow-xl py-3 h-[300px]">
+                <div className="avatar flex justify-center items-center">
+                  <div className="w-1/5 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                    <img src={review.image} alt="" />
+                  </div>
+                </div>
+                <div className="card-body items-center text-center">
+                  <p className="text-secondary">{review.name}</p>
+                  <p className="text-gray-500">{review.text}</p>
+                </div>
+                <div className="flex justify-center items-center">
+                  <ReactStars
+                    value={review.rating}
+                    count={5}
+                    size={40}
+                    activeColor="#ffd700"
+                  />
                 </div>
               </div>
-              <div className="card-body items-center text-center">
-                <p className="text-secondary">{review.name}</p>
-                <p className="text-gray-500">{review.text}</p>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );

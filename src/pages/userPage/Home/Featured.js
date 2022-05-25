@@ -19,8 +19,8 @@ const Featured = () => {
         <p>Get Your Desired Product from Featured Category!</p>
       </div>
       <div className="grid lg:grid-cols-8 md:grid-cols-4 grid-cols-2 gap-2 mt-5">
-        {parts.map((part) => (
-          <div className="card  bg-white shadow-xl p-5 border">
+        {parts.map((part, index) => (
+          <div key={index} className="card  bg-white shadow-xl p-5 border">
             <div className="flex justify-center items-center">
               <img
                 src={part.img}

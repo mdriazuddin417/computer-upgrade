@@ -25,7 +25,7 @@ const PurchaseOrder = ({ orderQuantity, orderPrice, id, part }) => {
     event.preventDefault();
     await fetcher.post("/order", { ...order, email: user?.email });
 
-    // navigate(`/payment/${id}`);
+    navigate(`/payment/${id}`);
   };
 
   return (

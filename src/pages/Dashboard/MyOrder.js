@@ -57,15 +57,15 @@ const MyOrder = () => {
         </div>
       ) : (
         <div className="h-screen flex justify-center items-center">
-          <div class="card  bg-base-100 shadow-xl">
-            <div class="card-body">
-              <h2 class="card-title font-bold text-4xl text-primary">
+          <div className="card  bg-base-100 shadow-xl">
+            <div className="card-body">
+              <h2 className="card-title font-bold text-4xl text-primary">
                 Please Order Now{" "}
               </h2>
 
-              <div class="card-actions justify-center">
+              <div className="card-actions justify-center">
                 <Link to={"/home"}>
-                  <button class="btn btn-primary">Visit</button>
+                  <button className="btn btn-primary">Visit</button>
                 </Link>
               </div>
             </div>

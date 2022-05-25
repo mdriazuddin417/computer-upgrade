@@ -17,8 +17,11 @@ const SubBanner = () => {
   ];
   return (
     <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 my-3">
-      {parts.map((part) => (
-        <div className="card card-side bg-base-100 shadow-xl border p-3">
+      {parts.map((part, index) => (
+        <div
+          key={index}
+          className="card card-side bg-base-100 shadow-xl border p-3"
+        >
           <figure>
             <img
               src="https://api.lorem.space/image/movie"
