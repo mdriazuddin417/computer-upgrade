@@ -87,7 +87,7 @@ const AddProduct = () => {
               </div>
               {errors.price?.type === "required" && (
                 <span className="text-red-500 text-sm mt-2 ml-2">
-                  {errors?.password?.message}
+                  {errors?.price?.message}
                 </span>
               )}
               <div className="form-control relative ">
@@ -96,13 +96,13 @@ const AddProduct = () => {
                   placeholder="Quantity"
                   className="input input-bordered "
                   {...register("quantity", {
-                    required: { value: true, message: "quantity is Required" },
+                    required: { value: true, message: "Quantity is Required" },
                   })}
                 />
               </div>
               {errors.quantity?.type === "required" && (
                 <span className="text-red-500 text-sm mt-2 ml-2">
-                  {errors?.password?.message}
+                  {errors?.quantity?.message}
                 </span>
               )}
               <div className="form-control relative ">
@@ -110,17 +110,17 @@ const AddProduct = () => {
                   type="text"
                   placeholder="Minimum Order"
                   className="input input-bordered "
-                  {...register("minimumorder", {
+                  {...register("minimum", {
                     required: {
                       value: true,
-                      message: "minimumorder is Required",
+                      message: "Minimum Order is Required",
                     },
                   })}
                 />
               </div>
-              {errors.minimumorder?.type === "required" && (
+              {errors.minimum?.type === "required" && (
                 <span className="text-red-500 text-sm mt-2 ml-2">
-                  {errors?.password?.message}
+                  {errors?.minimum?.message}
                 </span>
               )}
               <div className="form-control ">

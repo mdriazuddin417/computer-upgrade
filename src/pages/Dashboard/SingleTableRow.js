@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import fetcher from "../../api/fetcher";
 
 const SingleTableRow = ({ order, index, id, refetch }) => {
-  const { name, price, paid } = order;
+  const [loading, setLoading] = useState(false);
+  const { name, price } = order;
 
   const handleDeleteOrder = async () => {
+    setLoading(true);
     const res = await fetcher.delete(`/order/${id}`);
     if (res.data) {
       console.log(res.data);
       toast.success("Ordered Deleted !");
       refetch();
+      setLoading(false);
     }
   };
 
@@ -35,7 +39,9 @@ const SingleTableRow = ({ order, index, id, refetch }) => {
       <td>
         <button
           disabled={order.payment === "pending" ? true : false}
-          className="btn btn-error btn-sm"
+          className={
+            loading ? "btn btn-error btn-sm loading" : "btn btn-error btn-sm"
+          }
           onClick={handleDeleteOrder}
         >
           Delete

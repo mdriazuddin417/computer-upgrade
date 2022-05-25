@@ -12,7 +12,7 @@ import AddReview from "./pages/Dashboard/AddReview";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
-import ManageAllProduct from "./pages/AdminPage/ManageAllProduct";
+import ManageAllOrder from "./pages/AdminPage/ManageAllOrder";
 import ManageProduct from "./pages/AdminPage/ManageProduct";
 import AddProduct from "./pages/AdminPage/AddProduct";
 
@@ -47,7 +47,7 @@ function App() {
             <Route path="addreview" element={<AddReview />} />
 
             <Route path="addproduct" element={<AddProduct />} />
-            <Route path="manageallproduct" element={<ManageAllProduct />} />
+            <Route path="manageallorder" element={<ManageAllOrder />} />
             <Route path="manageproduct" element={<ManageProduct />} />
           </Route>
         </Routes>
