@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import fetcher from "../../api/fetcher";
 
@@ -37,7 +38,9 @@ const SingleManageProduct = ({ part, refetch, id }) => {
             piece
           </p>
           <div className="flex justify-between items-center mt-4">
-            <button className="btn btn-xs btn-access">Update</button>
+            <Link to={`/update-part/${id}`}>
+              <button className="btn btn-xs btn-access">Update</button>
+            </Link>
             <button
               className={
                 loading
