@@ -5,7 +5,7 @@ const useUser = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     (async () => {
-      const res = await fetcher.get("/get-users");
+      const res = await fetcher.get("users");
       setUsers(res.data);
     })();
   }, []);
