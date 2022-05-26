@@ -38,7 +38,9 @@ const Reviews = () => {
                 </div>
                 <div className="card-body items-center text-center">
                   <p className="text-secondary">{review.name}</p>
-                  <p className="text-gray-500">{review.text}</p>
+                  <p className="text-gray-500">
+                    {review.text.slice(0, 60)}....
+                  </p>
                 </div>
                 <div className="flex justify-center items-center">
                   <ReactStars

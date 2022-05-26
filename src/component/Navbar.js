@@ -30,7 +30,7 @@ const Navbar = ({ children }) => {
               </svg>
             </label>
           </div>
-          <div className="flex-1 px-2 mx-2 text-primary header font-bold text-2xl">
+          <div className="flex-1 px-2 mx-2 text-primary header font-bold text-3xl">
             Computer Upgrade
           </div>
           {pathname.includes("dashboard") && (

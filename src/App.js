@@ -17,6 +17,7 @@ import ManageProduct from "./pages/AdminPage/ManageProduct";
 import AddProduct from "./pages/AdminPage/AddProduct";
 import MakeAdmin from "./pages/AdminPage/MakeAdmin";
 import { adminRoutes } from "./routes/adminRoutes";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const [orderPrice, setOrderPrice] = useState(0);
@@ -53,6 +54,7 @@ function App() {
               <Route />
             </Route>
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Navbar>
       <ToastContainer />

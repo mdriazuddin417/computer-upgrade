@@ -60,8 +60,7 @@ const Login = () => {
     <div
       className=" "
       style={{
-        backgroundImage:
-          " url(https://api.lorem.space/image/fashion?w=1000&h=800)",
+        backgroundImage: " url(https://i.ibb.co/V9XXSGR/pxfuel-com-6.jpg)",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",

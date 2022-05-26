@@ -32,8 +32,16 @@ const AddReview = () => {
 
   return (
     <div>
-      <div className="h-screen flex justify-center items-center">
-        <div className="card  bg-base-100 shadow-xl">
+      <div
+        style={{
+          backgroundImage: " url(https://i.ibb.co/ynjdRLr/pxfuel-com-7.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+        className="h-screen flex justify-center items-center"
+      >
+        <div className=" card  bg-base-100 opacity-90 shadow-xl">
           <div className="card-body ">
             <h2 className="card-title font-bold lg:text-3xl text-xl text-primary">
               Add your feedback

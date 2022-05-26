@@ -60,17 +60,16 @@ const SignUp = () => {
   }, [error]);
   return (
     <div
-      className=" "
+      className="pt-12 "
       style={{
-        backgroundImage:
-          " url(https://api.lorem.space/image/fashion?w=1000&h=800)",
+        backgroundImage: " url(https://i.ibb.co/3hLY1Df/pxfuel-com-8.jpg)",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}
     >
       <div className="flex justify-center items-center h-screen p-5">
-        <div className="max-w-md backdrop-blur-sm bg-white/30 w-full  bg-opacity-80 rounded-xl ">
+        <div className="max-w-md backdrop-blur-sm bg-white/30 w-full  border bg-opacity-80 rounded-xl ">
           <div className="card-body ">
             <form onSubmit={handleSubmit(onSubmit)}>
               <h2 className="text-center mb-2 lg:text-3xl text-xl font-bold text-primary uppercase">

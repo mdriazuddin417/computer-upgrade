@@ -1,49 +1,46 @@
-# Getting Started with Create React App
+# Computer Upgrade
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##GitHub link
+[Computer Upgrade](https://github.com/programming-hero-web-course1/manufacturer-website-client-side-mdriazuddin417)
 
-## Available Scripts
+## Livesite Link
 
-In the project directory, you can run:
+[Computer Upgrade](https://computer-upgrade.web.app/)
 
-### `npm start`
+## Server github Link
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Computer Upgrade](https://github.com/programming-hero-web-course1/manufacturer-website-server-side-mdriazuddin417)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## My Project Features
 
-### `npm test`
+- In this project you can easily add the products of your choice and available quantity.
+- Add descriptions, names, prices, quantities, seller names, pictures of the products you have.
+- With the project you will get an excellent communication system which will help you to buy and sell the products and menufactural particale
+- We wish our customers a healthy mind and beautiful health
+- In this project security has been provided. So that your information can be saved
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Description
 
-### `npm run build`
+The name of my project is Computer Upgrade. There are many pages like Home, Home , Dashboard, Blogs, Login and Dashboard user page (Add a review, My order, My Profile) and Admin Page (Manage All Order , Manage Product, Add Product) The first page is called the home page. In which you can see the essence of everything. In Dashboard, you can see payment products as per your need and if you go to card payment, you can add review. There is a page called . In which Hail has been secured
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Used in this project:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React
+- React Router
+- React Icon
+- React Hook
+- React Hook Form
+- Tailwind
+- Firebase Authentication
+- JWT (Json Web Token)
+- React Confirm Modal
+- Node js
+- Express
+- Mongo DB
+- Server site use (Heroku website)
+- Payment method stripe
+- Admin Page
+- User page
 
 ### Code Splitting
 
