@@ -7,7 +7,7 @@ import auth from "./firebase.init";
 
 const AdminRoute = () => {
   const [user, loading] = useAuthState(auth);
-  const [admin, adminLoading] = useAdmin(user?.email);
+  const [admin, adminLoading] = useAdmin(user);
 
   if (loading || adminLoading) {
     <Loading />;

@@ -1,16 +1,25 @@
-import React, { useState } from "react";
-import fetcher from "../api/fetcher";
+import React, { useEffect, useState } from "react";
+
 import axiosPrivate from "../api/PrivateAxios";
 
-const useAdmin = async (email) => {
-  const [admin, setAdmin] = useState("");
+const useAdmin = (user) => {
+  const [admin, setAdmin] = useState(false);
   const [adminLoading, setAdminLoading] = useState(true);
-  const res = await axiosPrivate.get(`/admin/${email}`);
-  if (res.data) {
-    console.log(res.data);
-    setAdmin(res.data.admin);
-    setAdminLoading(false);
-  }
+  useEffect(() => {
+    const email = user?.email;
+    if (email) {
+      axiosPrivate
+        .get(`https://computer-upgrated.herokuapp.com/admin/${email}`)
+        .then((res) => {
+          if (res?.data) {
+            console.log(res.data);
+            setAdmin(res?.data?.admin);
+            setAdminLoading(false);
+          }
+        });
+    }
+  }, [user]);
+
   return [admin, adminLoading];
 };
 

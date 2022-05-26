@@ -6,7 +6,7 @@ import useAdmin from "../../hooks/useAdmin";
 const Dashboard = () => {
   const [user] = useAuthState(auth);
 
-  // const [admin] = useAdmin(user?.email);
+  const [admin] = useAdmin(user?.email);
   return (
     <div>
       <div className="drawer drawer-mobile pt-24">
@@ -18,27 +18,40 @@ const Dashboard = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
             {/* <!-- Sidebar content here --> */}
+
             <li>
-              <NavLink to={"myprofile"}>MY Profile</NavLink>
+              <NavLink to={"/dashboard/myprofile"}>MY Profile</NavLink>
             </li>
-            <li>
-              <NavLink to={"myorder"}>My Order</NavLink>
-            </li>
-            <li>
-              <NavLink to={"addreview"}>Add Review</NavLink>
-            </li>
-            <li>
-              <NavLink to={"manageallorder"}>Manage All Order</NavLink>
-            </li>
-            <li>
-              <NavLink to={"manageproduct"}>Manage Product</NavLink>
-            </li>
-            <li>
-              <NavLink to={"addproduct"}>Add Product</NavLink>
-            </li>
-            <li>
-              <NavLink to={"makeadmin"}>Make Admin</NavLink>
-            </li>
+            {user && (
+              <>
+                <li>
+                  <NavLink to={"/dashboard/myorder"}>My Order</NavLink>
+                </li>
+                <li>
+                  <NavLink to={"/dashboard/addreview"}>Add Review</NavLink>
+                </li>
+              </>
+            )}
+            {admin && (
+              <>
+                <li>
+                  <NavLink to={"/dashboard/manageallorder"}>
+                    Manage All Order
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"/dashboard/manageproduct"}>
+                    Manage Product
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"/dashboard/addproduct"}>Add Product</NavLink>
+                </li>
+                <li>
+                  <NavLink to={"/dashboard/makeadmin"}>Make Admin</NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>
