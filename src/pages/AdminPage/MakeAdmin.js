@@ -11,7 +11,7 @@ const MakeAdmin = () => {
     refetch,
   } = useQuery(
     "user",
-    async () => await axios.get("http://localhost:5000/users")
+    async () => await axios.get("https://computer-upgrated.herokuapp.com/users")
   );
   if (isLoading) {
     <Loading />;

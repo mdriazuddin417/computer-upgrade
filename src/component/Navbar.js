@@ -1,12 +1,12 @@
 import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import auth from "../authentication/firebase.init";
 
 const Navbar = ({ children }) => {
   const [user] = useAuthState(auth);
-
+  const { pathname } = useLocation();
   return (
     <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -33,6 +33,25 @@ const Navbar = ({ children }) => {
           <div className="flex-1 px-2 mx-2 text-primary header font-bold text-2xl">
             Computer Upgrade
           </div>
+          {pathname.includes("dashboard") && (
+            <div className="flex-none lg:hidden">
+              <label htmlFor="my-drawer-2" className="btn btn-square btn-ghost">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="inline-block w-6 h-6 stroke-current"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              </label>
+            </div>
+          )}
           <div className="flex-none hidden lg:block">
             <ul className="menu menu-horizontal space-x-2">
               {/* <!-- Navbar menu content here --> */}

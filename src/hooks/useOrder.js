@@ -8,7 +8,7 @@ const useOrder = (user) => {
   useEffect(() => {
     (async () => {
       const res = await axiosPrivate.get(
-        `http://localhost:5000/order?email=${user?.email}`
+        `https://computer-upgrated.herokuapp.com/order?email=${user?.email}`
       );
       if (res) {
         setOrders(res.data);

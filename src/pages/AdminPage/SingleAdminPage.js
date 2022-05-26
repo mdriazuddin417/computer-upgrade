@@ -13,7 +13,9 @@ const SingleAdminPage = ({ user, index, refetch, id }) => {
     setLoading(true);
     console.log("role", role);
     await axiosPrivate
-      .patch(`http://localhost:5000/user/admin/${email}`, { role: "admin" })
+      .patch(`https://computer-upgrated.herokuapp.com/user/admin/${email}`, {
+        role: "admin",
+      })
       .then((res) => {
         refetch();
         setLoading(false);
@@ -27,7 +29,9 @@ const SingleAdminPage = ({ user, index, refetch, id }) => {
     setRLoading(true);
     console.log("role", role);
     await axiosPrivate
-      .patch(`http://localhost:5000/user/admin/${email}`, { role: "user" })
+      .patch(`https://computer-upgrated.herokuapp.com/user/admin/${email}`, {
+        role: "user",
+      })
       .then((res) => {
         setLoading(false);
         refetch();

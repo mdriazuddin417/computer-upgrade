@@ -6,7 +6,7 @@ const SinglePart = ({ part }) => {
   const { _id, name, image, price, min, text, quantity } = part;
 
   return (
-    <div className="card bg-base-100 shadow-xl border relative ">
+    <div className="card max-w-[350px] bg-base-100 shadow-xl border relative hover:scale-105 duration-200 ">
       <figure>
         <img src={image} alt="Shoes" className="w-3/5 mt-2" />
       </figure>

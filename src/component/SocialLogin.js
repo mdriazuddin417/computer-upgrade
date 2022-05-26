@@ -25,9 +25,12 @@ const SocialLogin = () => {
     role: "user",
   };
   const userPost = async () => {
-    const res = await axios.post("http://localhost:5000/add-user", {
-      ...singleUser,
-    });
+    const res = await axios.post(
+      "https://computer-upgrated.herokuapp.com/add-user",
+      {
+        ...singleUser,
+      }
+    );
     console.log(res);
   };
   const [token] = useToken(gUser || ghUser);

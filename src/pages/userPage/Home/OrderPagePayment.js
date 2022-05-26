@@ -15,7 +15,10 @@ const OrderPagePayment = () => {
 
   const { data: order } = useQuery(
     ["order", id],
-    async () => await axiosPrivate.get(`http://localhost:5000/order/${id}`)
+    async () =>
+      await axiosPrivate.get(
+        `https://computer-upgrated.herokuapp.com/order/${id}`
+      )
   );
 
   const [user] = useAuthState(auth);

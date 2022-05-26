@@ -30,7 +30,7 @@ const PurchaseOrder = ({
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await axiosPrivate.post("http://localhost:5000/order", {
+    await axiosPrivate.post("https://computer-upgrated.herokuapp.com/order", {
       ...order,
       email: user?.email,
     });

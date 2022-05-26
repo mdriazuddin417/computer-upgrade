@@ -22,7 +22,9 @@ const MyOrder = () => {
     "Order",
     async () =>
       await axiosPrivate
-        .get(`http://localhost:5000/order?email=${user.email}`)
+        .get(
+          `https://computer-upgrated.herokuapp.com/order?email=${user.email}`
+        )
         .catch((error) => {
           if (error.response.status === 403) {
             signOut(auth);
