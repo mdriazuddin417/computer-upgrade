@@ -10,7 +10,9 @@ const AddReview = () => {
   const [ratingValue, setRatingValue] = useState(0);
   const handleAddReview = async (e) => {
     e.preventDefault();
-
+    if (!ratingValue) {
+      return toast.error("Please rating now");
+    }
     const review = {
       name: user?.displayName,
       text: e.target.review.value,
@@ -42,6 +44,7 @@ const AddReview = () => {
                 type="text"
                 placeholder="feedback"
                 name="review"
+                required
                 className="textarea textarea-bordered w-full max-w-xs mt-5"
               />
               <div className="flex justify-center items-center">

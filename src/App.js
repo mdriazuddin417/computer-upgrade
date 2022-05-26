@@ -15,6 +15,8 @@ import { useState } from "react";
 import ManageAllOrder from "./pages/AdminPage/ManageAllOrder";
 import ManageProduct from "./pages/AdminPage/ManageProduct";
 import AddProduct from "./pages/AdminPage/AddProduct";
+import MakeAdmin from "./pages/AdminPage/MakeAdmin";
+import { adminRoutes } from "./routes/adminRoutes";
 
 function App() {
   const [orderPrice, setOrderPrice] = useState(0);
@@ -39,16 +41,17 @@ function App() {
                 }
               />
             ))}
-          </Route>
-
-          <Route path="/dashboard" element={<Dashboard />}>
-            <Route path="myprofile" element={<MyProfile />} />
-            <Route path="myorder" element={<MyOrder />} />
-            <Route path="addreview" element={<AddReview />} />
-
-            <Route path="addproduct" element={<AddProduct />} />
-            <Route path="manageallorder" element={<ManageAllOrder />} />
-            <Route path="manageproduct" element={<ManageProduct />} />
+            <Route path="/dashboard" element={<Dashboard />}>
+              <Route path="myprofile" element={<MyProfile />} />
+              <Route path="myorder" element={<MyOrder />} />
+              <Route path="addreview" element={<AddReview />} />
+              <Route element={<PrivateRoute />}>
+                {adminRoutes.map(({ path, Component }, index) => (
+                  <Route key={index} path={path} element={<Component />} />
+                ))}
+              </Route>
+              <Route />
+            </Route>
           </Route>
         </Routes>
       </Navbar>

@@ -28,6 +28,7 @@ const SocialLogin = () => {
     const res = await axios.post("http://localhost:5000/add-user", {
       ...singleUser,
     });
+    console.log(res);
   };
   const [token] = useToken(gUser || ghUser);
   if (token) {
@@ -39,17 +40,19 @@ const SocialLogin = () => {
     toast.error("Internal Something Error ");
   }
   return (
-    <div className="grid grid-cols-1 gap-2 p-4">
+    <div className="grid grid-cols-1 gap-2 p-4 mt-0">
       <div class="divider">OR</div>
-      <button
-        class="btn btn-outline btn-secondary mb-2"
-        onClick={() => signInWithGoogle()}
-      >
-        <FaGooglePlusG className="text-2xl mr-3" /> Google
-      </button>
-      <button class="btn btn-outline" onClick={() => signInWithGithub()}>
-        <FaGithub className="text-2xl mr-3" /> GitHub
-      </button>
+      <div className="flex justify-around items-center">
+        <button
+          class="btn btn-outline btn-error"
+          onClick={() => signInWithGoogle()}
+        >
+          <FaGooglePlusG className="text-2xl mr-3" /> Google
+        </button>
+        <button class="btn btn-outline" onClick={() => signInWithGithub()}>
+          <FaGithub className="text-2xl mr-3" /> GitHub
+        </button>
+      </div>
     </div>
   );
 };

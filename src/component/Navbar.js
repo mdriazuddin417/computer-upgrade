@@ -86,6 +86,11 @@ const Navbar = ({ children }) => {
               Blog
             </NavLink>
           </li>
+          <li>
+            <NavLink to={"/dashboard/myprofile"} className="rounded">
+              Dashboard
+            </NavLink>
+          </li>
           {user ? (
             <li>
               <button className="btn btn-outline-primary rounded-lg text-white ">

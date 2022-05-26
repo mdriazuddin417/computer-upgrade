@@ -41,6 +41,9 @@ const Dashboard = () => {
             <li>
               <NavLink to={"addproduct"}>Add Product</NavLink>
             </li>
+            <li>
+              <NavLink to={"makeadmin"}>Make Admin</NavLink>
+            </li>
           </ul>
         </div>
       </div>

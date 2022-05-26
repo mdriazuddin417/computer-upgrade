@@ -22,7 +22,7 @@ const SingleOrder = ({ order, index, id, refetch }) => {
         $<span className="text-red-800 font-bold">{price}</span>
       </td>
 
-      <td>{payment}</td>
+      <td className="text-purple-500">{payment}</td>
       <td>
         {payment === "pending" && (
           <button
