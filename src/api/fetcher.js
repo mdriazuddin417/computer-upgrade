@@ -1,6 +1,5 @@
-import axios from "axios";
-
-const fetcher = axios.create({
+import axiosPrivate from "./PrivateAxios";
+const fetcher = axiosPrivate.create({
   baseURL: "http://localhost:5000",
 });
 

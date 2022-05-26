@@ -8,6 +8,8 @@ import auth from "../authentication/firebase.init";
 import SocialLogin from "./SocialLogin";
 import { BiShowAlt, BiHide } from "react-icons/bi";
 import fetcher from "../api/fetcher";
+import useToken from "../api/useToken";
+
 const SignUp = () => {
   const [open, setOpen] = useState(false);
   const [confirmPas, setConfirmPas] = useState("");
@@ -37,7 +39,8 @@ const SignUp = () => {
     reset();
     setConfirmPas("");
   };
-  if (user) {
+  const [token] = useToken(user);
+  if (token) {
     navigate("/");
   }
   useEffect(() => {

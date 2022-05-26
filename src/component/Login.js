@@ -7,6 +7,7 @@ import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../authentication/firebase.init";
 import SocialLogin from "./SocialLogin";
 import { toast } from "react-toastify";
+import useToken from "../api/useToken";
 const Login = () => {
   const [open, setOpen] = useState(false);
   const {
@@ -29,8 +30,9 @@ const Login = () => {
 
     reset();
   };
+  const [token] = useToken(user);
 
-  if (user) {
+  if (token) {
     toast.success("Login Successfully !!");
     navigate(from, { replace: true });
   }

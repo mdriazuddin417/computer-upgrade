@@ -9,6 +9,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { async } from "@firebase/util";
 import axios from "axios";
+import useToken from "../api/useToken";
 
 const SocialLogin = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -28,7 +29,8 @@ const SocialLogin = () => {
       ...singleUser,
     });
   };
-  if (gUser || ghUser) {
+  const [token] = useToken(gUser || ghUser);
+  if (token) {
     navigate(from, { replace: true });
     userPost();
   }
