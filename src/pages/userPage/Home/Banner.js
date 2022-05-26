@@ -1,6 +1,8 @@
 import React from "react";
-import img1 from "../../../assets/image/carosul1.jpg";
-import img2 from "../../../assets/image/carosul2.jpg";
+import img1 from "../../../assets/image/bg_1.jpg";
+import img2 from "../../../assets/image/bg_4.jpg";
+import img3 from "../../../assets/image/bg_3.jpg";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y, Autoplay } from "swiper";
 // Import Swiper styles
@@ -18,18 +20,16 @@ const Banner = () => {
       navigation
       pagination={{ clickable: true }}
       autoplay={{ autoplay: true }}
+      className="h-[80vh]"
     >
-      <SwiperSlide className="h-[70vh]">
-        <img src={img1} alt="" />
+      <SwiperSlide className="">
+        <img src={img1} alt="w-full" />
       </SwiperSlide>
-      <SwiperSlide className="h-[70vh]">
-        <img src={img2} alt="" />
+      <SwiperSlide className="">
+        <img src={img2} alt="w-full" />
       </SwiperSlide>
-      <SwiperSlide className="h-[70vh]">
-        <img src={img1} alt="" />
-      </SwiperSlide>
-      <SwiperSlide className="h-[70vh]">
-        <img src={img2} alt="" />
+      <SwiperSlide className="">
+        <img src={img3} alt="w-full" />
       </SwiperSlide>
     </Swiper>
   );

@@ -16,7 +16,7 @@ const Reviews = () => {
 
   return (
     <div className="my-10">
-      <h2 className="text-center mb-5">Client FeedBacks</h2>
+      <h2 className="text-center mb-2 header-font">Client FeedBacks</h2>
 
       <Swiper
         modules={[Navigation, Pagination, A11y, Autoplay]}

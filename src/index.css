@@ -11,7 +11,10 @@
 .header {
   font-family: "Courgette", cursive;
 }
-
+.header-font {
+  @apply lg:text-3xl text-xl font-bold 
+  bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 uppercase;
+}
 .swiper-button-prev:after,
 .swiper-button-next:after {
   font-size: 17px !important;
@@ -19,4 +22,8 @@
   padding: 8px;
   border-radius: 5px;
   color: white;
+}
+
+.button {
+  @apply bg-gradient-to-r from-blue-500 border-t-violet-500;
 }

@@ -1,30 +1,46 @@
 import React from "react";
+import img1 from "../../../assets/image/sub4.jpg";
+import img2 from "../../../assets/image/sub1.webp";
+import img3 from "../../../assets/image/sub2.webp";
+import img4 from "../../../assets/image/sub3.webp";
 
 const SubBanner = () => {
   const parts = [
-    { offer: "Mega Offer", name: "Graphics Card", subName: "Graphics card" },
+    {
+      offer: "Mega Offer",
+      name: "Graphics Card",
+      subName: "Graphics card",
+      img: img1,
+    },
     {
       offer: "Mega Offer",
       name: "Gigabyte GA-H61M-DS2",
       subName: "MotherBoard",
+      img: img2,
     },
     {
       offer: "Mega Offer",
       name: "Intel 10th Gen Core i3",
       subName: "Processor",
+      img: img3,
     },
-    { offer: "Mega Offer", name: "AMD Ryzen 5", subName: "Mother Board" },
+    {
+      offer: "Mega Offer",
+      name: "AMD Ryzen 5",
+      subName: "Mother Board",
+      img: img4,
+    },
   ];
   return (
     <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 my-3">
       {parts.map((part, index) => (
         <div
           key={index}
-          className="card card-side bg-base-100 shadow-xl border p-3"
+          className="card card-side bg-white duration-300 hover:shadow-lg border border-green-500 p-3"
         >
           <figure>
             <img
-              src="https://api.lorem.space/image/movie"
+              src={part.img}
               alt="Movie"
               className="w-[70px] h-[70px] rounded"
             />

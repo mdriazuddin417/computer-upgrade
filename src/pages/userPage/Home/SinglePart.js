@@ -8,7 +8,7 @@ const SinglePart = ({ part }) => {
   return (
     <div className="card bg-base-100 shadow-xl border relative ">
       <figure>
-        <img src={image} alt="Shoes" className="w-2/3" />
+        <img src={image} alt="Shoes" className="w-3/5 mt-2" />
       </figure>
       <div className=" card-body">
         <h2 className="card-title">{name}</h2>
@@ -25,11 +25,11 @@ const SinglePart = ({ part }) => {
         <h2 className="text-sm text-gray-600">Available : {quantity}Pieces</h2>
         <h2 className="text-sm text-gray-600">Min. Order: {min}Pieces</h2>
 
-        <p className="text-md text-gray-500 mb-10">{text}</p>
+        <p className="text-sm text-gray-500 mb-10">{text}.....</p>
       </div>
       <div className="w-full absolute bottom-0">
         <Link to={`/purchase/${_id}`}>
-          <button className="btn btn-primary w-full rounded-tr-sm rounded-tl-sm">
+          <button className="btn btn-primary  w-full rounded-tr-sm rounded-tl-sm">
             Order Now <FaShoppingCart className="ml-5 w-[30px]" />
           </button>
         </Link>

@@ -2,8 +2,8 @@ import React from "react";
 
 const Newsletter = () => {
   return (
-    <div className="my-10 text-center p-16 bg-slate-400">
-      <h2>Newsletter Or Update Deal</h2>
+    <div className="my-10 text-center p-16 bg-gradient-to-r from-blue-400 to-blue-200">
+      <h2 className="header-font">Newsletter</h2>
       <div className="flex flex-col space-y-2 justify-center items-center mt-5">
         <input
           type="text"

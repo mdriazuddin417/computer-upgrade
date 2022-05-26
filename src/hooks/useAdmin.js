@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import fetcher from "../api/fetcher";
 import axiosPrivate from "../api/PrivateAxios";
 
 const useAdmin = async (email) => {

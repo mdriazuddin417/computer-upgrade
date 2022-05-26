@@ -5,10 +5,11 @@ import auth from "../../authentication/firebase.init";
 import useAdmin from "../../hooks/useAdmin";
 const Dashboard = () => {
   const [user] = useAuthState(auth);
-  // const [admin] = useAdmin(user.email);
+
+  // const [admin] = useAdmin(user?.email);
   return (
     <div>
-      <div className="drawer drawer-mobile">
+      <div className="drawer drawer-mobile pt-24">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content  bg-gray-100">
           <Outlet />

@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import Loading from "../component/Loading";
+
 import fetcher from "../api/fetcher";
 const useParts = () => {
-  const [parts, setParts] = useState([]);
+  const { data: parts, isLoading } = useQuery(
+    "parts",
+    async () => await fetcher.get("/all-parts")
+  );
+  if (isLoading) {
+    <Loading />;
+  }
 
-  useEffect(() => {
-    (async () => {
-      const res = await fetcher.get("/all-parts");
-      if (res) {
-        setParts(res.data);
-      }
-    })();
-  }, []);
-
-  return [parts, setParts];
+  return [parts];
 };
 
 export default useParts;
