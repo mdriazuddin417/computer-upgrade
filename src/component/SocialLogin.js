@@ -31,7 +31,6 @@ const SocialLogin = () => {
         ...singleUser,
       }
     );
-    console.log(res);
   };
   const [token] = useToken(gUser || ghUser);
   if (token) {

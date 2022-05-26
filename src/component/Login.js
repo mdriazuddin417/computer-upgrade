@@ -39,7 +39,6 @@ const Login = () => {
 
   useEffect(() => {
     if (error) {
-      console.log(error.message);
       switch (error.message) {
         case "Firebase: Error (auth/email-already-exists).":
           toast.error("Email is Already using.");

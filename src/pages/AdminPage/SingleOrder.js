@@ -7,7 +7,7 @@ const SingleOrder = ({ order, index, id, refetch }) => {
 
   const handlePaymentSuccess = async () => {
     const res = await fetcher.patch(`/order/${id}`, { payment: "paid" });
-    console.log(res);
+
     toast.success("success");
     refetch();
   };

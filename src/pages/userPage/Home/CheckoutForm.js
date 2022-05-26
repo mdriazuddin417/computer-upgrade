@@ -75,13 +75,9 @@ const CheckoutForm = ({ price, user, id }) => {
       //Update
       await fetcher
         .patch(`/order/${id}`, { payment: "pending" })
-        .then((res) => {
-          console.log(res.data);
-        });
+        .then((res) => {});
       //payment
-      await fetcher.patch(`/payment`, payment).then((res) => {
-        console.log(res.data);
-      });
+      await fetcher.patch(`/payment`, payment).then((res) => {});
     }
   };
   return (

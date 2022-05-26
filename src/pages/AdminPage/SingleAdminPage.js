@@ -11,7 +11,7 @@ const SingleAdminPage = ({ user, index, refetch, id }) => {
 
   const handleMakeAdmin = async () => {
     setLoading(true);
-    console.log("role", role);
+
     await axiosPrivate
       .patch(`https://computer-upgrated.herokuapp.com/user/admin/${email}`, {
         role: "admin",
@@ -19,7 +19,6 @@ const SingleAdminPage = ({ user, index, refetch, id }) => {
       .then((res) => {
         refetch();
         setLoading(false);
-        console.log(res);
       })
       .catch((error) => {
         setLoading(false);
@@ -27,7 +26,7 @@ const SingleAdminPage = ({ user, index, refetch, id }) => {
   };
   const handleRemoveAdmin = async () => {
     setRLoading(true);
-    console.log("role", role);
+
     await axiosPrivate
       .patch(`https://computer-upgrated.herokuapp.com/user/admin/${email}`, {
         role: "user",
@@ -37,7 +36,6 @@ const SingleAdminPage = ({ user, index, refetch, id }) => {
         refetch();
         refetch();
         setRLoading(false);
-        console.log(res);
       })
       .catch((error) => {
         setRLoading(false);

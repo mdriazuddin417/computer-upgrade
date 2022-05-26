@@ -35,7 +35,7 @@ const SignUp = () => {
     toast.success("Sign Up Successfully !");
 
     const res = await fetcher.post("/add-user", { ...data, role: "user" });
-    console.log(res);
+
     reset();
     setConfirmPas("");
   };

@@ -11,7 +11,6 @@ const SingleManageProduct = ({ part, refetch, id }) => {
     setLoading(true);
     const res = await fetcher.delete(`/part/${id}`);
     if (res.data) {
-      console.log(res.data);
       toast.success("Ordered Deleted !");
       refetch();
       setLoading(false);

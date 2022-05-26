@@ -12,8 +12,7 @@ const useAdmin = (user) => {
         .get(`https://computer-upgrated.herokuapp.com/admin/${email}`)
         .then((res) => {
           if (res?.data) {
-            console.log(res.data);
-            setAdmin(res?.data?.admin);
+            setAdmin(res?.data.admin);
             setAdminLoading(false);
           }
         });

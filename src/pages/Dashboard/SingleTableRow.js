@@ -13,7 +13,6 @@ const SingleTableRow = ({ order, index, id, refetch }) => {
     setLoading(true);
     const res = await fetcher.delete(`/order/${id}`);
     if (res.data) {
-      console.log(res.data);
       toast.success("Ordered Deleted !");
       refetch();
       setLoading(false);
