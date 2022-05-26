@@ -4,7 +4,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 
 import { useParams } from "react-router-dom";
-import fetcher from "../../../api/fetcher";
+
+import axiosPrivate from "../../../api/PrivateAxios";
 
 import auth from "../../../authentication/firebase.init";
 import CheckoutForm from "./CheckoutForm";
@@ -14,7 +15,7 @@ const OrderPagePayment = () => {
 
   const { data: order } = useQuery(
     ["order", id],
-    async () => await fetcher.get(`/order/${id}`)
+    async () => await axiosPrivate.get(`http://localhost:5000/order/${id}`)
   );
 
   const [user] = useAuthState(auth);

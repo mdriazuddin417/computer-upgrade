@@ -110,7 +110,7 @@ const AddProduct = () => {
                   type="text"
                   placeholder="Minimum Order"
                   className="input input-bordered "
-                  {...register("minimum", {
+                  {...register("min", {
                     required: {
                       value: true,
                       message: "Minimum Order is Required",
@@ -118,9 +118,9 @@ const AddProduct = () => {
                   })}
                 />
               </div>
-              {errors.minimum?.type === "required" && (
+              {errors.min?.type === "required" && (
                 <span className="text-red-500 text-sm mt-2 ml-2">
-                  {errors?.minimum?.message}
+                  {errors?.min?.message}
                 </span>
               )}
               <div className="form-control ">

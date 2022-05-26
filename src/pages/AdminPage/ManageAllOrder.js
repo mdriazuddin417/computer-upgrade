@@ -1,17 +1,22 @@
 import { async } from "@firebase/util";
+import axios from "axios";
+import { signOut } from "firebase/auth";
 import React from "react";
 import { useQuery } from "react-query";
+import { useNavigate } from "react-router-dom";
 import fetcher from "../../api/fetcher";
+
 import Loading from "../../component/Loading";
 
 import SingleOrder from "./SingleOrder";
 
 const ManageAllOrder = () => {
+  const navigate = useNavigate();
   const {
     data: orders,
     isLoading,
     refetch,
-  } = useQuery("order", async () => await fetcher.get("/order"));
+  } = useQuery("order", async () => await fetcher.get("/admin-order"));
 
   if (isLoading) {
     <Loading />;

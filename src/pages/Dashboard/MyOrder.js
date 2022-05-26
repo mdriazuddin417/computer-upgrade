@@ -1,17 +1,18 @@
+import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
-import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import fetcher from "../../api/fetcher";
+import { Link, useNavigate } from "react-router-dom";
+
+import axiosPrivate from "../../api/PrivateAxios";
 import auth from "../../authentication/firebase.init";
 import Loading from "../../component/Loading";
-import useOrder from "../../hooks/useOrder";
+
 import SingleTableRow from "./SingleTableRow";
 
 const MyOrder = () => {
   const [user] = useAuthState(auth);
-
+  const navigate = useNavigate();
   const {
     data: orders,
     isLoading,
@@ -19,7 +20,15 @@ const MyOrder = () => {
     error,
   } = useQuery(
     "Order",
-    async () => await fetcher.get(`/order?email=${user.email}`)
+    async () =>
+      await axiosPrivate
+        .get(`http://localhost:5000/order?email=${user.email}`)
+        .catch((error) => {
+          if (error.response.status === 403) {
+            signOut(auth);
+            navigate("/login");
+          }
+        })
   );
   if (isLoading) {
     <Loading />;

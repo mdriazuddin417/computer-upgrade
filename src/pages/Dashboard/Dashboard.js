@@ -1,7 +1,11 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink, Outlet } from "react-router-dom";
-
+import auth from "../../authentication/firebase.init";
+import useAdmin from "../../hooks/useAdmin";
 const Dashboard = () => {
+  const [user] = useAuthState(auth);
+  // const [admin] = useAdmin(user.email);
   return (
     <div>
       <div className="drawer drawer-mobile">

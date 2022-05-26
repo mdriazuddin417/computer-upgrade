@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 import { useNavigate } from "react-router-dom";
 import fetcher from "../../api/fetcher";
+import axiosPrivate from "../../api/PrivateAxios";
 
 import auth from "../../authentication/firebase.init";
 import useUser from "../../hooks/useUser";
@@ -29,7 +30,10 @@ const PurchaseOrder = ({
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await fetcher.post("/order", { ...order, email: user?.email });
+    await axiosPrivate.post("http://localhost:5000/order", {
+      ...order,
+      email: user?.email,
+    });
 
     navigate(`/payment/${id}`);
   };

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import fetcher from "../../../api/fetcher";
+
 const SinglePart = ({ part }) => {
   const { _id, name, image, price, min, text, quantity } = part;
 

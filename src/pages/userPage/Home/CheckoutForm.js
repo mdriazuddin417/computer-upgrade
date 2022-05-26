@@ -15,6 +15,7 @@ const CheckoutForm = ({ price, user, id }) => {
       if (res.data?.clientSecret) {
         setClientSecret(res.data.clientSecret);
       } else {
+        setLoading(false);
       }
     });
   }, [price]);
@@ -24,10 +25,12 @@ const CheckoutForm = ({ price, user, id }) => {
     event.preventDefault();
 
     if (!stripe || !elements) {
+      setLoading(false);
       return;
     }
     const card = elements.getElement(CardElement);
     if (card == null) {
+      setLoading(false);
       return;
     }
     const { error, paymentMethod } = await stripe.createPaymentMethod({
