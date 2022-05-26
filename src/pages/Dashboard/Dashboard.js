@@ -23,7 +23,7 @@ const Dashboard = () => {
             <li>
               <NavLink to={"/dashboard/myprofile"}>MY Profile</NavLink>
             </li>
-            {user && (
+            {admin || (
               <>
                 <li>
                   <NavLink to={"/dashboard/myorder"}>My Order</NavLink>
