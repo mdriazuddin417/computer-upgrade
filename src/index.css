@@ -3,7 +3,20 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
 
 * {
   font-family: "Open Sans", sans-serif;
+}
+.header {
+  font-family: "Courgette", cursive;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 17px !important;
+  background: tomato;
+  padding: 8px;
+  border-radius: 5px;
+  color: white;
 }
