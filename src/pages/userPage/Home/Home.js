@@ -7,12 +7,14 @@ import SubBanner from "./SubBanner";
 import Reviews from "./Reviews";
 import Newsletter from "./Newsletter";
 import Footer from "../../../component/Footer";
+import SubBanner2 from "./SubBanner2";
 
 const Home = () => {
   return (
     <div>
       <Banner />
       <SubBanner />
+      <SubBanner2 />
       <Featured />
       <Parts />
       <Business />

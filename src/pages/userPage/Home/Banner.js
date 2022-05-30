@@ -23,13 +23,67 @@ const Banner = () => {
       className="h-[80vh]"
     >
       <SwiperSlide className="">
-        <img src={img1} alt="w-full" />
+        <div
+          class="hero min-h-screen"
+          style={{
+            backgroundImage: `url(${img1})`,
+          }}
+        >
+          <div class="hero-overlay bg-opacity-20"></div>
+          <div class="hero-content text-center text-neutral-content">
+            <div class="max-w-md bg-[#587de2] bg-opacity-50 p-5 rounded-lg shadow-md hover:scale-105 duration-300 hover:shadow-2xl">
+              <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
+              <p class="mb-5">
+                Provident cupiditate voluptatem et in. Quaerat fugiat ut
+                assumenda excepturi exercitationem quasi. In deleniti eaque aut
+                repudiandae et a id nisi.
+              </p>
+              <button class="btn btn-outline btn-info">Visit More</button>
+            </div>
+          </div>
+        </div>
       </SwiperSlide>
       <SwiperSlide className="">
-        <img src={img2} alt="w-full" />
+        <div
+          class="hero min-h-screen"
+          style={{
+            backgroundImage: `url(${img2})`,
+          }}
+        >
+          <div class="hero-overlay bg-opacity-20"></div>
+          <div class="hero-content text-center text-neutral-content">
+            <div class="max-w-md  bg-[#23baf5] bg-opacity-50 p-5 rounded-lg shadow-md hover:scale-105 duration-300 hover:shadow-2xl">
+              <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
+              <p class="mb-5">
+                Provident cupiditate voluptatem et in. Quaerat fugiat ut
+                assumenda excepturi exercitationem quasi. In deleniti eaque aut
+                repudiandae et a id nisi.
+              </p>
+              <button class="btn btn-outline btn-primary">Get Started</button>
+            </div>
+          </div>
+        </div>
       </SwiperSlide>
       <SwiperSlide className="">
-        <img src={img3} alt="w-full" />
+        <div
+          class="hero min-h-screen"
+          style={{
+            backgroundImage: `url(${img3})`,
+          }}
+        >
+          <div class="hero-overlay bg-opacity-20"></div>
+          <div class="hero-content text-center text-black">
+            <div class="max-w-md  bg-white bg-opacity-50 p-5 rounded-lg shadow-md hover:scale-105 duration-300 hover:shadow-2xl">
+              <h1 class="mb-5 text-5xl font-bold ">Hello there</h1>
+              <p class="mb-5">
+                Provident cupiditate voluptatem et in. Quaerat fugiat ut
+                assumenda excepturi exercitationem quasi. In deleniti eaque aut
+                repudiandae et a id nisi.
+              </p>
+              <button class="btn  btn-success">Visit site</button>
+            </div>
+          </div>
+        </div>
       </SwiperSlide>
     </Swiper>
   );
