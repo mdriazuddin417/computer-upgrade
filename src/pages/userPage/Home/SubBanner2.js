@@ -7,7 +7,7 @@ const SubBanner2 = () => {
         <div class="hero-content flex-col lg:flex-row-reverse gap-10 p-10">
           <img
             src="https://i.ibb.co/HFzmxC8/ITHelp.png"
-            width={300}
+            width={320}
             class="max-w-sm rounded-lg shadow-2xl "
             alt=""
           />
