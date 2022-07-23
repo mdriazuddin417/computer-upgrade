@@ -2,18 +2,16 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import fetcher from "../../api/fetcher";
+import ConfirmModel from "./ConfirmModel";
 
 const SingleManageProduct = ({ part, refetch, id }) => {
   const { name, price, min, quantity, image, text } = part;
-  const [loading, setLoading] = useState(false);
 
   const handleDeleteProduct = async () => {
-    setLoading(true);
     const res = await fetcher.delete(`/part/${id}`);
     if (res.data) {
       toast.success("Ordered Deleted !");
       refetch();
-      setLoading(false);
     }
   };
   return (
@@ -40,19 +38,14 @@ const SingleManageProduct = ({ part, refetch, id }) => {
             <Link to={`/update-part/${id}`}>
               <button className="btn btn-xs btn-access">Update</button>
             </Link>
-            <button
-              className={
-                loading
-                  ? "btn btn-xs btn-error loading"
-                  : "btn btn-xs btn-error"
-              }
-              onClick={handleDeleteProduct}
-            >
+
+            <label for="my-modal" class="btn btn-error modal-button btn-xs">
               Delete
-            </button>
+            </label>
           </div>
         </div>
       </div>
+      <ConfirmModel handleDeleteProduct={handleDeleteProduct} />
     </div>
   );
 };

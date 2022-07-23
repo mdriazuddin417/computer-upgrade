@@ -32,13 +32,19 @@ const Banner = () => {
           <div class="hero-overlay bg-opacity-20"></div>
           <div class="hero-content text-center text-neutral-content">
             <div class="max-w-md bg-[#587de2] bg-opacity-50 p-5 rounded-lg shadow-md hover:scale-105 duration-300 hover:shadow-2xl">
-              <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
+              <h1 class="mb-5 text-5xl font-bold">Power supply</h1>
               <p class="mb-5">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
+                A power supply unit (PSU) converts alternating current (AC)
+                electric power to low-voltage direct current (DC) power for the
+                computer. Laptops can run on built-in rechargeable battery
               </p>
-              <button class="btn btn-outline btn-info">Visit More</button>
+              <a
+                target={"_blank"}
+                href="https://en.wikipedia.org/wiki/Power_supply_unit_(computer)"
+              >
+                {" "}
+                <button class="btn  btn-warning">Visit site</button>
+              </a>
             </div>
           </div>
         </div>
@@ -53,13 +59,18 @@ const Banner = () => {
           <div class="hero-overlay bg-opacity-20"></div>
           <div class="hero-content text-center text-neutral-content">
             <div class="max-w-md  bg-[#23baf5] bg-opacity-50 p-5 rounded-lg shadow-md hover:scale-105 duration-300 hover:shadow-2xl">
-              <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
+              <h1 class="mb-5 text-5xl font-bold">Departmental computing</h1>
               <p class="mb-5">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
+                In the 1960s and 1970s, more and more departments started to use
+                cheaper and dedicated systems for specific purposes like process
+                control and laboratory automation.
               </p>
-              <button class="btn btn-outline btn-primary">Get Started</button>
+              <a
+                target={"_blank"}
+                href="https://en.wikipedia.org/wiki/Minicomputer"
+              >
+                <button class="btn  btn-primary">Visit site</button>
+              </a>{" "}
             </div>
           </div>
         </div>
@@ -74,13 +85,19 @@ const Banner = () => {
           <div class="hero-overlay bg-opacity-20"></div>
           <div class="hero-content text-center text-black">
             <div class="max-w-md  bg-white bg-opacity-50 p-5 rounded-lg shadow-md hover:scale-105 duration-300 hover:shadow-2xl">
-              <h1 class="mb-5 text-5xl font-bold ">Hello there</h1>
+              <h1 class="mb-5 text-5xl font-bold ">Mainframe computer</h1>
               <p class="mb-5">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
+                A mainframe computer is a much larger computer that typically
+                fills a room and may cost many hundreds or thousands of times as
+                much as a personal computer. They are designed to perform large
+                numbers of calculations for governments and large enterprises.
               </p>
-              <button class="btn  btn-success">Visit site</button>
+              <a
+                target={"_blank"}
+                href="https://en.wikipedia.org/wiki/Mainframe_computer"
+              >
+                <button class="btn  btn-success">Visit site</button>
+              </a>
             </div>
           </div>
         </div>

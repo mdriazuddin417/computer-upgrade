@@ -23,7 +23,7 @@ const AddProduct = () => {
     await axios
       .post(
         "https://api.imgbb.com/1/upload?key=0e53fbea7f6ba111a8e8e78349d06c7b",
-        formData
+        formData,
       )
       .then((res) => {
         if (res?.data) {

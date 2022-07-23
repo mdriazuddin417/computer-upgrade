@@ -1,7 +1,9 @@
 import React from "react";
 import { useQuery } from "react-query";
+import { toast } from "react-toastify";
 import fetcher from "../../api/fetcher";
 import Loading from "../../component/Loading";
+import ConfirmModel from "./ConfirmModel";
 import SingleManageProduct from "./SingleManageProduct";
 
 const ManageProduct = () => {

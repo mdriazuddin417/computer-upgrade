@@ -13,10 +13,13 @@ const Parts = () => {
       </p>
       <div className="flex justify-center items-center">
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 p-7 ">
-          {parts?.data.slice(0, 6).map((part) => (
+          {parts?.data.slice(0, 3).map((part) => (
             <SinglePart key={part._id} part={part} />
           ))}
         </div>
+      </div>
+      <div className="flex justify-center items-center">
+        <button className="btn btn-primary rounded-full">More Parts</button>
       </div>
     </div>
   );

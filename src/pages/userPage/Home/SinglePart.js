@@ -29,7 +29,7 @@ const SinglePart = ({ part }) => {
         </h2>
         <h2 className="text-sm text-gray-600">Min. Order: {part.min}Pieces</h2>
 
-        <p className="text-sm text-gray-500 mb-10">{part.text}.....</p>
+        <p className="text-sm text-gray-500 mb-10">{part.description}.....</p>
       </div>
       <div className="w-full absolute bottom-0">
         <Link to={`/purchase/${part._id}`}>

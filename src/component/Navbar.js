@@ -61,6 +61,11 @@ const Navbar = ({ children }) => {
                 </NavLink>
               </li>
               <li>
+                <NavLink to={"/parts"} className="rounded">
+                  All Parts
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to={"/dashboard/myprofile"} className="rounded">
                   Dashboard
                 </NavLink>
@@ -95,7 +100,7 @@ const Navbar = ({ children }) => {
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
-        <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
+        <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 space-y-3">
           {/* <!-- Sidebar content here --> */}
           <li>
             <NavLink to={"home"} className="rounded">

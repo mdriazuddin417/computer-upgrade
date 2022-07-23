@@ -12,10 +12,7 @@ import AddReview from "./pages/Dashboard/AddReview";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
-import ManageAllOrder from "./pages/AdminPage/ManageAllOrder";
-import ManageProduct from "./pages/AdminPage/ManageProduct";
-import AddProduct from "./pages/AdminPage/AddProduct";
-import MakeAdmin from "./pages/AdminPage/MakeAdmin";
+
 import { adminRoutes } from "./routes/adminRoutes";
 import NotFound from "./pages/NotFound";
 
@@ -23,7 +20,7 @@ function App() {
   const [orderPrice, setOrderPrice] = useState(0);
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto ">
       <Navbar>
         <Routes>
           {publicRoutes.map(({ path, Component }, index) => (

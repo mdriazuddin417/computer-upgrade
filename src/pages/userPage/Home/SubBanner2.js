@@ -3,7 +3,7 @@ import React from "react";
 const SubBanner2 = () => {
   return (
     <div className="my-10 ">
-      <div class="hero  bg-base-200">
+      <div class="hero  ">
         <div class="hero-content flex-col lg:flex-row-reverse gap-10 p-10">
           <img
             src="https://i.ibb.co/HFzmxC8/ITHelp.png"
@@ -16,11 +16,21 @@ const SubBanner2 = () => {
               Full Computer part Selling my Company
             </h1>
             <p class="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              Dynamic random access memory (DRAM) is the majority in computers.
+              Modern computers use several types of DRAM. Before 2002, most
+              computers used single data rate (SDR) RAM. Most computers made
+              since then use either double data rate (DDR), DDR2, DDR3, or DDR4
+              RAM. The later types allow stored data to be moved and used more
+              quickly, so that the computer's processor can keep working quickly
+              without having to wait for data as long or as often.
             </p>
-            <button class="btn btn-primary">Visiting Other..</button>
+            <a
+              target={"_blank"}
+              href="https://simple.wikipedia.org/wiki/Dynamic_random_access_memory"
+            >
+              {" "}
+              <button class="btn btn-primary">Visiting Other</button>
+            </a>
           </div>
         </div>
       </div>

@@ -13,12 +13,14 @@ const Home = () => {
   return (
     <div>
       <Banner />
-      <SubBanner />
-      <SubBanner2 />
-      <Featured />
-      <Parts />
-      <Business />
-      <Reviews />
+      <div className="px-5">
+        <SubBanner />
+        <SubBanner2 />
+        <Featured />
+        <Parts />
+        <Business />
+        <Reviews />
+      </div>
       <Newsletter />
       <Footer />
     </div>
