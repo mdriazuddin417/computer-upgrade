@@ -2,7 +2,7 @@ import React from "react";
 
 const Blog = () => {
   return (
-    <div className="lg:pt-24 pt-12 px-5">
+    <div className="pt-24 px-5">
       <div className="space-y-8">
         <div className="hover:shadow-lg p-5 hover:rounded-lg duration-300">
           <p className="text-xl">
